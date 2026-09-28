@@ -1,6 +1,75 @@
-/* =========================================
+/* =========================================================
    INSTITUTO CF - CRIANÇA FELIZ
-   ========================================= */
+   Experiência Prática II - Desenvolvimento Front-end
+   ========================================================= */
+
+
+/* =========================================================
+   1. DESIGN SYSTEM
+   ========================================================= */
+
+:root {
+
+    /* -------------------------
+       PALETA DE CORES
+       ------------------------- */
+
+    /* Cores primárias */
+    --cor-primaria: #0877BD;
+    --cor-primaria-escura: #075B8C;
+    --cor-primaria-clara: #E9F5FC;
+
+    /* Cores secundárias */
+    --cor-secundaria: #F7941D;
+    --cor-amarelo: #FFC928;
+    --cor-verde: #65A832;
+
+    /* Cores neutras */
+    --cor-branco: #FFFFFF;
+    --cor-cinza-claro: #F5F7F8;
+    --cor-cinza: #666666;
+    --cor-cinza-escuro: #404040;
+    --cor-texto: #263238;
+
+    /* -------------------------
+       TIPOGRAFIA
+       ------------------------- */
+
+    --fonte-principal: Arial, Helvetica, sans-serif;
+
+    --fonte-xs: 0.875rem;  /* 14px */
+    --fonte-sm: 1rem;      /* 16px */
+    --fonte-md: 1.25rem;   /* 20px */
+    --fonte-lg: 1.75rem;   /* 28px */
+    --fonte-xl: 2.5rem;    /* 40px */
+
+    /* -------------------------
+       ESPAÇAMENTOS
+       Escala baseada em 8px
+       ------------------------- */
+
+    --espaco-1: 0.5rem;    /* 8px */
+    --espaco-2: 1rem;      /* 16px */
+    --espaco-3: 1.5rem;    /* 24px */
+    --espaco-4: 2rem;      /* 32px */
+    --espaco-5: 3rem;      /* 48px */
+    --espaco-6: 4rem;      /* 64px */
+
+    /* -------------------------
+       OUTROS PADRÕES
+       ------------------------- */
+
+    --raio-sm: 6px;
+    --raio-md: 12px;
+    --raio-lg: 24px;
+
+    --sombra: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   2. RESET E CONFIGURAÇÕES GLOBAIS
+   ========================================================= */
 
 * {
     margin: 0;
@@ -8,316 +77,918 @@
     box-sizing: border-box;
 }
 
-:root {
-    --azul: #0877bd;
-    --azul-escuro: #07558c;
-    --azul-claro: #e9f5fc;
-
-    --laranja: #f7941d;
-    --amarelo: #ffc928;
-    --verde: #65a832;
-
-    --branco: #ffffff;
-    --cinza-claro: #f5f7f8;
-    --cinza: #666666;
-    --texto: #263238;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--branco);
-    color: var(--texto);
+    font-family: var(--fonte-principal);
+    font-size: var(--fonte-sm);
     line-height: 1.6;
+    color: var(--cor-texto);
+    background-color: var(--cor-cinza-claro);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2;
+    margin-bottom: var(--espaco-2);
+}
+
+h1 {
+    font-size: var(--fonte-xl);
+}
+
+h2 {
+    font-size: var(--fonte-lg);
+    color: var(--cor-primaria-escura);
+}
+
+h3 {
+    font-size: var(--fonte-md);
+}
+
+p {
+    margin-bottom: var(--espaco-2);
 }
 
 
-/* =========================================
-   CABEÇALHO
-   ========================================= */
+/* =========================================================
+   3. CONTAINER
+   ========================================================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   4. CSS GRID - SISTEMA DE 12 COLUNAS
+   ========================================================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-3);
+}
+
+.col-12 {
+    grid-column: span 12;
+}
+
+.col-8 {
+    grid-column: span 8;
+}
+
+.col-6 {
+    grid-column: span 6;
+}
+
+.col-4 {
+    grid-column: span 4;
+}
+
+.col-3 {
+    grid-column: span 3;
+}
+
+
+/* =========================================================
+   5. HEADER
+   FLEXBOX
+   ========================================================= */
 
 header {
-    background-color: var(--azul);
-    color: var(--branco);
-    text-align: center;
-    padding: 25px 20px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    padding: var(--espaco-3);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espaco-3);
+    flex-wrap: wrap;
 }
 
 header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 15px;
+    margin-bottom: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-2);
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
 }
 
 
-/* =========================================
-   MENU
-   ========================================= */
+/* =========================================================
+   6. MENU DE NAVEGAÇÃO
+   FLEXBOX
+   ========================================================= */
 
 nav {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    align-items: center;
+    gap: var(--espaco-3);
     flex-wrap: wrap;
 }
 
 nav a {
-    color: var(--branco);
+    color: var(--cor-branco);
     text-decoration: none;
     font-weight: bold;
-
-    padding: 10px 20px;
-    border-radius: 20px;
-
-    transition: 0.3s;
+    padding: var(--espaco-1) var(--espaco-2);
+    border-radius: var(--raio-sm);
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
-nav a:hover {
-    background-color: var(--laranja);
+nav a:hover,
+nav a:focus {
+    background-color: var(--cor-branco);
+    color: var(--cor-primaria);
+    outline: none;
 }
 
 
-/* =========================================
-   CONTEÚDO PRINCIPAL
-   ========================================= */
+/* =========================================================
+   7. CONTEÚDO PRINCIPAL
+   ========================================================= */
 
 main {
     width: 90%;
-    max-width: 1100px;
-
-    margin: 40px auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--espaco-5) 0;
 }
 
-
-/* =========================================
-   SEÇÕES
-   ========================================= */
-
 section {
-    background-color: var(--branco);
-
-    margin-bottom: 35px;
-    padding: 30px;
-
-    border-radius: 12px;
-
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+    background-color: var(--cor-branco);
+    padding: var(--espaco-4);
+    margin-bottom: var(--espaco-4);
+    border-radius: var(--raio-md);
+    box-shadow: var(--sombra);
 }
 
 section h2 {
-    color: var(--azul);
-    margin-bottom: 15px;
-
-    border-left: 6px solid var(--laranja);
-    padding-left: 12px;
-}
-
-section p {
-    margin-bottom: 15px;
+    margin-bottom: var(--espaco-3);
 }
 
 
-/* =========================================
-   IMAGENS
-   ========================================= */
+/* =========================================================
+   8. ÁREA DE DESTAQUE / HERO
+   ========================================================= */
 
-section img {
-    display: block;
+.hero {
+    background-color: var(--cor-primaria-clara);
+    padding: var(--espaco-5);
+    border-radius: var(--raio-md);
+    margin-bottom: var(--espaco-4);
+}
 
+.hero h2 {
+    font-size: var(--fonte-xl);
+    color: var(--cor-primaria-escura);
+}
+
+.hero p {
+    font-size: var(--fonte-md);
+}
+
+
+/* =========================================================
+   9. CARDS DOS PROJETOS
+   GRID EXTERNO + FLEXBOX INTERNO
+   ========================================================= */
+
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-3);
+}
+
+.card {
+    grid-column: span 4;
+
+    background-color: var(--cor-branco);
+    border-radius: var(--raio-md);
+    box-shadow: var(--sombra);
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--espaco-2);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
     width: 100%;
-    max-width: 850px;
-    height: auto;
+    height: 220px;
+    object-fit: cover;
+}
 
-    margin: 25px auto;
+.card-conteudo {
+    padding: var(--espaco-3);
 
-    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-2);
+    flex-grow: 1;
+}
 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.card h3 {
+    color: var(--cor-primaria);
 }
 
 
-/* =========================================
-   PROJETOS
-   ========================================= */
+/* =========================================================
+   10. ÁREA DE AÇÕES / BOTÕES
+   FLEXBOX
+   ========================================================= */
 
-article {
-    background-color: var(--cinza-claro);
-
-    margin: 25px 0;
-    padding: 25px;
-
-    border-radius: 10px;
-
-    border-top: 5px solid var(--verde);
+.acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--espaco-2);
+    flex-wrap: wrap;
+    margin-top: var(--espaco-3);
 }
 
-article h3 {
-    color: var(--azul-escuro);
-    margin-bottom: 10px;
-}
-
-
-/* =========================================
-   LINKS / BOTÕES
-   ========================================= */
-
-main a {
+button,
+.botao,
+input[type="submit"] {
     display: inline-block;
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
 
-    background-color: var(--laranja);
-    color: var(--branco);
+    border: none;
+    border-radius: var(--raio-sm);
 
-    text-decoration: none;
+    padding: var(--espaco-2) var(--espaco-3);
+
+    font-family: var(--fonte-principal);
+    font-size: var(--fonte-sm);
     font-weight: bold;
 
-    padding: 12px 22px;
+    text-decoration: none;
+    cursor: pointer;
 
-    border-radius: 25px;
-
-    transition: 0.3s;
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
 }
 
-main a:hover {
-    background-color: var(--azul);
+button:hover,
+.botao:hover,
+input[type="submit"]:hover {
+    background-color: var(--cor-primaria-escura);
     transform: translateY(-2px);
 }
 
+button:focus,
+.botao:focus,
+input[type="submit"]:focus {
+    outline: 3px solid var(--cor-amarelo);
+    outline-offset: 3px;
+}
 
-/* =========================================
-   FORMULÁRIO
-   ========================================= */
+
+/* =========================================================
+   11. FORMULÁRIOS
+   cadastro.html
+   ========================================================= */
 
 form {
-    max-width: 750px;
-    margin: 20px auto;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--cor-branco);
+    padding: var(--espaco-4);
+    border-radius: var(--raio-md);
+    box-shadow: var(--sombra);
 }
 
 fieldset {
-    border: 2px solid var(--azul);
-    border-radius: 10px;
-
-    padding: 25px;
-    margin-bottom: 25px;
-
-    background-color: var(--azul-claro);
+    border: 2px solid var(--cor-primaria-clara);
+    border-radius: var(--raio-md);
+    padding: var(--espaco-3);
+    margin-bottom: var(--espaco-3);
 }
 
 legend {
-    background-color: var(--azul);
-    color: var(--branco);
-
+    color: var(--cor-primaria-escura);
+    font-size: var(--fonte-md);
     font-weight: bold;
+    padding: 0 var(--espaco-1);
+}
 
-    padding: 7px 15px;
+.campo {
+    margin-bottom: var(--espaco-3);
 
-    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-1);
 }
 
 label {
-    display: block;
-
-    color: var(--azul-escuro);
     font-weight: bold;
-
-    margin-top: 10px;
-    margin-bottom: 5px;
+    color: var(--cor-texto);
 }
 
 input,
-select {
+select,
+textarea {
     width: 100%;
+    padding: var(--espaco-2);
 
-    padding: 11px;
+    border: 1px solid var(--cor-cinza);
+    border-radius: var(--raio-sm);
 
-    border: 1px solid #bbbbbb;
-    border-radius: 6px;
+    font-family: var(--fonte-principal);
+    font-size: var(--fonte-sm);
 
-    font-size: 1rem;
+    background-color: var(--cor-branco);
+    color: var(--cor-texto);
+}
 
-    background-color: var(--branco);
+textarea {
+    min-height: 120px;
+    resize: vertical;
 }
 
 input:focus,
-select:focus {
-    outline: 2px solid var(--laranja);
-    border-color: var(--laranja);
+select:focus,
+textarea:focus {
+    border-color: var(--cor-primaria);
+    outline: 3px solid rgba(8, 119, 189, 0.20);
 }
 
 
-/* =========================================
-   BOTÃO CADASTRAR
-   ========================================= */
+/* =========================================================
+   12. INFORMAÇÕES DE CONTATO
+   ========================================================= */
 
-button {
-    display: block;
-
-    margin: 20px auto;
-
-    background-color: var(--laranja);
-    color: var(--branco);
-
-    border: none;
-    border-radius: 25px;
-
-    padding: 13px 35px;
-
-    font-size: 1rem;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.3s;
+.contato {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--espaco-3);
+    flex-wrap: wrap;
 }
 
-button:hover {
-    background-color: var(--verde);
-    transform: translateY(-2px);
+.contato > div {
+    flex: 1 1 250px;
 }
 
 
-/* =========================================
-   RODAPÉ
-   ========================================= */
+/* =========================================================
+   13. RODAPÉ
+   FLEXBOX
+   ========================================================= */
 
 footer {
-    background-color: var(--azul-escuro);
-    color: var(--branco);
+    background-color: var(--cor-primaria-escura);
+    color: var(--cor-branco);
 
-    text-align: center;
+    padding: var(--espaco-4);
 
-    padding: 25px;
-    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--espaco-2);
+    flex-wrap: wrap;
+}
 
-    border-top: 5px solid var(--laranja);
+footer p {
+    margin-bottom: 0;
+}
+
+footer a {
+    color: var(--cor-amarelo);
 }
 
 
-/* =========================================
-   RESPONSIVIDADE
-   ========================================= */
+/* =========================================================
+   14. ACESSIBILIDADE
+   ========================================================= */
 
-@media (max-width: 700px) {
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--cor-amarelo);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   15. BREAKPOINT 1
+   CELULARES PEQUENOS - ATÉ 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .container,
+    main {
+        width: 94%;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--espaco-2);
+    }
 
     header h1 {
-        font-size: 1.7rem;
+        font-size: var(--fonte-lg);
     }
 
     nav {
+        width: 100%;
         flex-direction: column;
+        gap: var(--espaco-1);
     }
 
     nav a {
-        display: block;
+        width: 100%;
+        text-align: center;
     }
 
-    main {
-        width: 95%;
-        margin: 20px auto;
+    .grid,
+    .projetos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .col-3,
+    .col-4,
+    .col-6,
+    .col-8,
+    .col-12,
+    .card {
+        grid-column: 1 / -1;
     }
 
     section {
-        padding: 20px;
+        padding: var(--espaco-2);
     }
 
-    fieldset {
-        padding: 18px;
+    .hero {
+        padding: var(--espaco-3);
     }
+
+    .hero h2 {
+        font-size: var(--fonte-lg);
+    }
+
+    .acoes {
+        flex-direction: column;
+    }
+
+    .acoes .botao,
+    .acoes button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contato {
+        flex-direction: column;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    form {
+        padding: var(--espaco-2);
+    }
+}
+
+
+/* =========================================================
+   16. BREAKPOINT 2
+   CELULARES GRANDES / TABLETS
+   481px ATÉ 768px
+   ========================================================= */
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .container,
+    main {
+        width: 92%;
+    }
+
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .grid,
+    .projetos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .col-3,
+    .col-4,
+    .col-6,
+    .col-8 {
+        grid-column: auto;
+    }
+
+    .col-12 {
+        grid-column: 1 / -1;
+    }
+
+    .card {
+        grid-column: auto;
+    }
+
+    .hero {
+        padding: var(--espaco-4);
+    }
+
+    footer {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   17. BREAKPOINT 3
+   TABLETS / NOTEBOOKS MENORES
+   769px ATÉ 1024px
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .container,
+    main {
+        width: 90%;
+    }
+
+    .grid,
+    .projetos-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--espaco-2);
+    }
+
+    .col-3,
+    .col-4 {
+        grid-column: span 6;
+    }
+
+    .col-6 {
+        grid-column: span 6;
+    }
+
+    .col-8 {
+        grid-column: span 8;
+    }
+
+    .col-12 {
+        grid-column: span 12;
+    }
+
+    .card {
+        grid-column: span 6;
+    }
+}
+
+
+/* =========================================================
+   18. BREAKPOINT 4
+   NOTEBOOKS / DESKTOPS
+   1025px ATÉ 1280px
+   ========================================================= */
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    .container,
+    main {
+        max-width: 1200px;
+    }
+
+    .grid,
+    .projetos-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--espaco-3);
+    }
+
+    .card {
+        grid-column: span 4;
+    }
+}
+
+
+/* =========================================================
+   19. BREAKPOINT 5
+   DESKTOPS PANORÂMICOS - ACIMA DE 1280px
+   ========================================================= */
+
+@media (min-width: 1281px) {
+
+    .container,
+    main {
+        max-width: 1400px;
+    }
+
+    .grid,
+    .projetos-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--espaco-4);
+    }
+
+    .card {
+        grid-column: span 4;
+    }
+}
+/* =========================================
+   ESTADOS INTERATIVOS DOS BOTÕES
+   ========================================= */
+
+button,
+.botao,
+input[type="submit"] {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    border: 2px solid transparent;
+    box-shadow: var(--sombra);
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* Mouse sobre o botão */
+button:hover,
+.botao:hover,
+input[type="submit"]:hover {
+    background-color: var(--cor-primaria-escura);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+/* Navegação por teclado */
+button:focus-visible,
+.botao:focus-visible,
+input[type="submit"]:focus-visible {
+    outline: 3px solid var(--cor-amarelo);
+    outline-offset: 3px;
+}
+
+/* Botão sendo pressionado */
+button:active,
+.botao:active,
+input[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Botão desabilitado */
+button:disabled,
+input[type="submit"]:disabled {
+    background-color: var(--cor-cinza);
+    color: var(--cor-cinza-claro);
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+
+/* =========================================
+   VALIDAÇÃO VISUAL DOS FORMULÁRIOS
+   ========================================= */
+
+/* Campo em foco */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--cor-primaria);
+    outline: 3px solid rgba(8, 119, 189, 0.20);
+}
+
+/* Campo preenchido corretamente */
+input:not(:placeholder-shown):valid {
+    border: 2px solid var(--cor-verde);
+    background-color: #F3FAEE;
+}
+
+/* Campo com preenchimento inválido */
+input:not(:placeholder-shown):invalid {
+    border: 2px solid #C62828;
+    background-color: #FFF1F1;
+}
+
+/* Mantém o foco visível mesmo durante validação */
+input:focus:valid {
+    outline: 3px solid rgba(101, 168, 50, 0.20);
+}
+
+input:focus:invalid {
+    outline: 3px solid rgba(198, 40, 40, 0.20);
+}
+
+/* =========================================================
+   COMPONENTES DE FEEDBACK
+   ========================================================= */
+
+.componentes-feedback h3 {
+    margin-top: var(--espaco-4);
+}
+
+
+/* BADGES */
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco-1);
+    margin-bottom: var(--espaco-3);
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: var(--raio-lg);
+    font-size: var(--fonte-xs);
+    font-weight: bold;
+}
+
+.badge-educacao {
+    background-color: var(--cor-primaria-clara);
+    color: var(--cor-primaria-escura);
+}
+
+.badge-alimentacao {
+    background-color: var(--cor-amarelo);
+    color: var(--cor-texto);
+}
+
+.badge-voluntariado {
+    background-color: var(--cor-verde);
+    color: var(--cor-branco);
+}
+
+
+/* ALERTAS */
+
+.alerta {
+    padding: var(--espaco-2);
+    margin-bottom: var(--espaco-2);
+    border-radius: var(--raio-sm);
+    border-left: 5px solid;
+    font-weight: bold;
+}
+
+.alerta-sucesso {
+    background-color: #F3FAEE;
+    color: #35661B;
+    border-color: var(--cor-verde);
+}
+
+.alerta-aviso {
+    background-color: #FFF8E1;
+    color: #795900;
+    border-color: var(--cor-amarelo);
+}
+
+.alerta-erro {
+    background-color: #FFF1F1;
+    color: #9E1C1C;
+    border-color: #C62828;
+}
+
+
+/* TOAST */
+
+.toast {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    background-color: var(--cor-primaria-escura);
+    color: var(--cor-branco);
+
+    padding: var(--espaco-2) var(--espaco-3);
+    border-radius: var(--raio-sm);
+    box-shadow: var(--sombra);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s;
+
+    z-index: 2000;
+}
+
+.toast.ativo {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--espaco-2);
+
+    background-color: rgba(0, 0, 0, 0.55);
+
+    z-index: 3000;
+}
+
+.modal.ativo {
+    display: flex;
+}
+
+.modal-conteudo {
+    position: relative;
+
+    width: 100%;
+    max-width: 500px;
+
+    background-color: var(--cor-branco);
+    color: var(--cor-texto);
+
+    padding: var(--espaco-4);
+
+    border-radius: var(--raio-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.modal-conteudo h2 {
+    color: var(--cor-primaria-escura);
+}
+
+.modal-fechar {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+
+    background: transparent;
+    color: var(--cor-texto);
+
+    padding: 4px 10px;
+
+    font-size: 1.5rem;
+
+    box-shadow: none;
+}
+
+.modal-fechar:hover {
+    background-color: var(--cor-cinza-claro);
+    color: var(--cor-primaria-escura);
 }

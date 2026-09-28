@@ -9,6 +9,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+<script>
+    function mostrarToast() {
+        const toast = document.getElementById("toast");
+
+        toast.classList.add("ativo");
+
+        setTimeout(() => {
+            toast.classList.remove("ativo");
+        }, 3000);
+    }
+
+    function abrirModal() {
+        document.getElementById("modal").classList.add("ativo");
+    }
+
+    function fecharModal() {
+        document.getElementById("modal").classList.remove("ativo");
+    }
+</script>
+
 <body>
 
     <header>
@@ -53,7 +73,75 @@
             <p>Telefone: (11) 99999-9999</p>
             <p>E-mail: contato@institutocf.org.br</p>
         </section>
+        <section class="componentes-feedback">
+    <h2>Componentes de Feedback</h2>
 
+    <h3>Badges</h3>
+
+    <div class="badges">
+        <span class="badge badge-educacao">Educação</span>
+        <span class="badge badge-alimentacao">Alimentação</span>
+        <span class="badge badge-voluntariado">Voluntariado</span>
+    </div>
+
+    <h3>Alertas</h3>
+
+    <div class="alerta alerta-sucesso">
+        ✓ Cadastro realizado com sucesso!
+    </div>
+
+    <div class="alerta alerta-aviso">
+        ⚠ Verifique os dados antes de continuar.
+    </div>
+
+    <div class="alerta alerta-erro">
+        ✕ Não foi possível concluir a operação.
+    </div>
+
+    <h3>Toast</h3>
+
+    <button type="button" onclick="mostrarToast()">
+        Testar notificação
+    </button>
+
+    <div id="toast" class="toast" role="status" aria-live="polite">
+        ✓ Sua solicitação foi enviada com sucesso!
+    </div>
+
+    <h3>Modal</h3>
+
+    <button type="button" onclick="abrirModal()">
+        Quero ser voluntário
+    </button>
+
+    <div id="modal" class="modal" role="dialog"
+         aria-modal="true"
+         aria-labelledby="titulo-modal">
+
+        <div class="modal-conteudo">
+
+            <button
+                type="button"
+                class="modal-fechar"
+                onclick="fecharModal()"
+                aria-label="Fechar modal">
+                ×
+            </button>
+
+            <h2 id="titulo-modal">Seja um voluntário</h2>
+
+            <p>
+                Obrigado pelo interesse em participar dos
+                projetos do Instituto CF.
+            </p>
+
+            <button type="button" onclick="fecharModal()">
+                Entendi
+            </button>
+
+        </div>
+    </div>
+</section>
     </main>
 
     <footer>
