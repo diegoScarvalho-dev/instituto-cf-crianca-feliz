@@ -1,0 +1,323 @@
+/* =========================================
+   INSTITUTO CF - CRIANÇA FELIZ
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --azul: #0877bd;
+    --azul-escuro: #07558c;
+    --azul-claro: #e9f5fc;
+
+    --laranja: #f7941d;
+    --amarelo: #ffc928;
+    --verde: #65a832;
+
+    --branco: #ffffff;
+    --cinza-claro: #f5f7f8;
+    --cinza: #666666;
+    --texto: #263238;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--branco);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   CABEÇALHO
+   ========================================= */
+
+header {
+    background-color: var(--azul);
+    color: var(--branco);
+    text-align: center;
+    padding: 25px 20px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   MENU
+   ========================================= */
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: bold;
+
+    padding: 10px 20px;
+    border-radius: 20px;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--laranja);
+}
+
+
+/* =========================================
+   CONTEÚDO PRINCIPAL
+   ========================================= */
+
+main {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 40px auto;
+}
+
+
+/* =========================================
+   SEÇÕES
+   ========================================= */
+
+section {
+    background-color: var(--branco);
+
+    margin-bottom: 35px;
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+}
+
+section h2 {
+    color: var(--azul);
+    margin-bottom: 15px;
+
+    border-left: 6px solid var(--laranja);
+    padding-left: 12px;
+}
+
+section p {
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   IMAGENS
+   ========================================= */
+
+section img {
+    display: block;
+
+    width: 100%;
+    max-width: 850px;
+    height: auto;
+
+    margin: 25px auto;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================
+   PROJETOS
+   ========================================= */
+
+article {
+    background-color: var(--cinza-claro);
+
+    margin: 25px 0;
+    padding: 25px;
+
+    border-radius: 10px;
+
+    border-top: 5px solid var(--verde);
+}
+
+article h3 {
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   LINKS / BOTÕES
+   ========================================= */
+
+main a {
+    display: inline-block;
+
+    background-color: var(--laranja);
+    color: var(--branco);
+
+    text-decoration: none;
+    font-weight: bold;
+
+    padding: 12px 22px;
+
+    border-radius: 25px;
+
+    transition: 0.3s;
+}
+
+main a:hover {
+    background-color: var(--azul);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   FORMULÁRIO
+   ========================================= */
+
+form {
+    max-width: 750px;
+    margin: 20px auto;
+}
+
+fieldset {
+    border: 2px solid var(--azul);
+    border-radius: 10px;
+
+    padding: 25px;
+    margin-bottom: 25px;
+
+    background-color: var(--azul-claro);
+}
+
+legend {
+    background-color: var(--azul);
+    color: var(--branco);
+
+    font-weight: bold;
+
+    padding: 7px 15px;
+
+    border-radius: 15px;
+}
+
+label {
+    display: block;
+
+    color: var(--azul-escuro);
+    font-weight: bold;
+
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px solid #bbbbbb;
+    border-radius: 6px;
+
+    font-size: 1rem;
+
+    background-color: var(--branco);
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid var(--laranja);
+    border-color: var(--laranja);
+}
+
+
+/* =========================================
+   BOTÃO CADASTRAR
+   ========================================= */
+
+button {
+    display: block;
+
+    margin: 20px auto;
+
+    background-color: var(--laranja);
+    color: var(--branco);
+
+    border: none;
+    border-radius: 25px;
+
+    padding: 13px 35px;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: var(--verde);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   RODAPÉ
+   ========================================= */
+
+footer {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+
+    text-align: center;
+
+    padding: 25px;
+    margin-top: 40px;
+
+    border-top: 5px solid var(--laranja);
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        display: block;
+    }
+
+    main {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    fieldset {
+        padding: 18px;
+    }
+}
