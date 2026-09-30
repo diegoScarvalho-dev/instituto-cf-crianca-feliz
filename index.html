@@ -1,32 +1,133 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-contraste="alto">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instituto CF - Criança Feliz</title>
 
-    <link rel="stylesheet" href="style.css">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Instituto CF - Criança Feliz. Projeto social voltado à educação, alimentação e apoio a crianças e famílias.">
+
+    <title>
+        Instituto CF - Criança Feliz
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
 </head>
-
 
 
 <body>
 
-    <header>
-        <h1>Instituto CF - Criança Feliz</h1>
+    <!-- =====================================================
+         ACESSIBILIDADE
+         LINK PARA PULAR DIRETAMENTE AO CONTEÚDO
+    ====================================================== -->
 
-        <nav id="menu-principal">
-            <a href="#inicio" data-rota="inicio">Início</a>
-            <a href="#projetos" data-rota="projetos">Projetos</a>
-            <a href="#cadastro" data-rota="cadastro">Cadastro</a>
+    <a
+        href="#conteudo-principal"
+        class="skip-link">
+
+        Pular para o conteúdo principal
+
+    </a>
+
+
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header>
+
+        <h1>
+            Instituto CF - Criança Feliz
+        </h1>
+
+
+        <!-- =================================================
+             NAVEGAÇÃO PRINCIPAL
+        ================================================== -->
+
+        <nav
+            id="menu-principal"
+            aria-label="Navegação principal">
+
+            <a
+                href="#inicio"
+                data-rota="inicio">
+
+                Início
+
+            </a>
+
+
+            <a
+                href="#projetos"
+                data-rota="projetos">
+
+                Projetos
+
+            </a>
+
+
+            <a
+                href="#cadastro"
+                data-rota="cadastro">
+
+                Cadastro
+
+            </a>
+
         </nav>
+
+
+        <!-- =================================================
+             CONTROLE DE ACESSIBILIDADE
+        ================================================== -->
+
+        <div class="controles-acessibilidade">
+
+            <button
+                type="button"
+                id="botao-contraste"
+                class="botao-contraste"
+                aria-pressed="false"
+                aria-label="Ativar modo de alto contraste">
+
+                ◐ Alto contraste
+
+            </button>
+
+        </div>
+
     </header>
 
-    <main>
-         <div id="conteudo-principal">
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main
+        id="conteudo-principal"
+        tabindex="-1">
+
+
+        <!-- =================================================
+             SOBRE O INSTITUTO
+        ================================================== -->
+
         <section>
-            <h2>Sobre o Instituto</h2>
+
+            <h2>
+                Sobre o Instituto
+            </h2>
 
             <p>
                 O Instituto CF - Criança Feliz desenvolve ações sociais
@@ -34,97 +135,265 @@
                 crianças e famílias em situação de vulnerabilidade.
             </p>
 
-            <img src="img/Projeto_CF.png" alt="Crianças e voluntários participando de uma ação social do Instituto CF">
+
+            <img
+                src="img/Projeto_CF.png"
+                alt="Crianças e voluntários participando de uma ação social do Instituto CF">
+
         </section>
 
+
+        <!-- =================================================
+             MISSÃO
+        ================================================== -->
+
         <section>
-            <h2>Nossa missão</h2>
+
+            <h2>
+                Nossa missão
+            </h2>
 
             <p>
                 Promover oportunidades e contribuir para o desenvolvimento
                 de crianças por meio da educação, alimentação e participação
                 da comunidade.
             </p>
+
         </section>
+
+
+        <!-- =================================================
+             CONTATO
+        ================================================== -->
 
         <section>
-            <h2>Entre em contato</h2>
 
-            <p>Telefone: (11) 99999-9999</p>
-            <p>E-mail: contato@institutocf.org.br</p>
+            <h2>
+                Entre em contato
+            </h2>
+
+
+            <address>
+
+                <p>
+
+                    Telefone:
+
+                    <a href="tel:+5511999999999">
+                        (11) 99999-9999
+                    </a>
+
+                </p>
+
+
+                <p>
+
+                    E-mail:
+
+                    <a href="mailto:contato@institutocf.org.br">
+                        contato@institutocf.org.br
+                    </a>
+
+                </p>
+
+            </address>
+
         </section>
-        <section class="componentes-feedback">
-            <h2>Componentes de Feedback</h2>
 
-            <h3>Badges</h3>
+
+        <!-- =================================================
+             COMPONENTES DE FEEDBACK
+        ================================================== -->
+
+        <section class="componentes-feedback">
+
+            <h2>
+                Componentes de Feedback
+            </h2>
+
+
+            <!-- =============================================
+                 BADGES
+            ============================================== -->
+
+            <h3>
+                Badges
+            </h3>
+
 
             <div class="badges">
-                <span class="badge badge-educacao">Educação</span>
-                <span class="badge badge-alimentacao">Alimentação</span>
-                <span class="badge badge-voluntariado">Voluntariado</span>
+
+                <span class="badge badge-educacao">
+                    Educação
+                </span>
+
+                <span class="badge badge-alimentacao">
+                    Alimentação
+                </span>
+
+                <span class="badge badge-voluntariado">
+                    Voluntariado
+                </span>
+
             </div>
 
-            <h3>Alertas</h3>
+
+            <!-- =============================================
+                 ALERTAS
+            ============================================== -->
+
+            <h3>
+                Alertas
+            </h3>
+
 
             <div class="alerta alerta-sucesso">
+
                 ✓ Cadastro realizado com sucesso!
+
             </div>
+
 
             <div class="alerta alerta-aviso">
+
                 ⚠ Verifique os dados antes de continuar.
+
             </div>
+
 
             <div class="alerta alerta-erro">
+
                 ✕ Não foi possível concluir a operação.
+
             </div>
 
-            <h3>Toast</h3>
 
-            <button type="button" onclick="mostrarToast()">
+            <!-- =============================================
+                 TOAST
+            ============================================== -->
+
+            <h3>
+                Toast
+            </h3>
+
+
+            <button
+                type="button"
+                onclick="mostrarToast()">
+
                 Testar notificação
+
             </button>
 
-            <div id="toast" class="toast" role="status" aria-live="polite">
+
+            <div
+                id="toast"
+                class="toast"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true">
+
                 ✓ Sua solicitação foi enviada com sucesso!
+
             </div>
 
-            <h3>Modal</h3>
 
-            <button type="button" onclick="abrirModal()">
+            <!-- =============================================
+                 MODAL
+            ============================================== -->
+
+            <h3>
+                Modal
+            </h3>
+
+
+            <button
+                type="button"
+                onclick="abrirModal()">
+
                 Quero ser voluntário
+
             </button>
 
-            <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
 
-                <div class="modal-conteudo">
+            <div
+                id="modal"
+                class="modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="titulo-modal"
+                aria-describedby="descricao-modal">
 
-                    <button type="button" class="modal-fechar" onclick="fecharModal()" aria-label="Fechar modal">
+                <div
+                    class="modal-conteudo"
+                    tabindex="-1">
+
+
+                    <button
+                        type="button"
+                        class="modal-fechar"
+                        onclick="fecharModal()"
+                        aria-label="Fechar janela de voluntariado">
+
                         ×
+
                     </button>
 
-                    <h2 id="titulo-modal">Seja um voluntário</h2>
 
-                    <p>
+                    <h2 id="titulo-modal">
+
+                        Seja um voluntário
+
+                    </h2>
+
+
+                    <p id="descricao-modal">
+
                         Obrigado pelo interesse em participar dos
                         projetos do Instituto CF.
+
                     </p>
 
-                    <button type="button" onclick="fecharModal()">
+
+                    <button
+                        type="button"
+                        onclick="fecharModal()">
+
                         Entendi
+
                     </button>
-                    </div>
+
                 </div>
+
             </div>
+
         </section>
+
     </main>
 
+
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
+
     <footer>
-        <p>&copy; 2026 Instituto CF - Criança Feliz</p>
+
+        <p>
+            &copy; 2026 Instituto CF - Criança Feliz
+        </p>
+
     </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT - ES6 MODULES
+    ====================================================== -->
+
     <script
-    type="module"
-    src="js/script.js">
-</script>
+        type="module"
+        src="js/script.js">
+    </script>
+
 </body>
 
-</html>
+</html>     
