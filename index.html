@@ -9,40 +9,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<script>
-    function mostrarToast() {
-        const toast = document.getElementById("toast");
 
-        toast.classList.add("ativo");
-
-        setTimeout(() => {
-            toast.classList.remove("ativo");
-        }, 3000);
-    }
-
-    function abrirModal() {
-        document.getElementById("modal").classList.add("ativo");
-    }
-
-    function fecharModal() {
-        document.getElementById("modal").classList.remove("ativo");
-    }
-</script>
 
 <body>
 
     <header>
         <h1>Instituto CF - Criança Feliz</h1>
 
-        <nav>
-            <a href="index.html">Início</a>
-            <a href="projetos.html">Projetos</a>
-            <a href="cadastro.html">Cadastro</a>
+        <nav id="menu-principal">
+            <a href="#inicio" data-rota="inicio">Início</a>
+            <a href="#projetos" data-rota="projetos">Projetos</a>
+            <a href="#cadastro" data-rota="cadastro">Cadastro</a>
         </nav>
     </header>
 
     <main>
-
+         <div id="conteudo-principal">
         <section>
             <h2>Sobre o Instituto</h2>
 
@@ -52,9 +34,7 @@
                 crianças e famílias em situação de vulnerabilidade.
             </p>
 
-            <img
-                src="img/Projeto_CF.png"
-                alt="Crianças e voluntários participando de uma ação social do Instituto CF">
+            <img src="img/Projeto_CF.png" alt="Crianças e voluntários participando de uma ação social do Instituto CF">
         </section>
 
         <section>
@@ -74,80 +54,75 @@
             <p>E-mail: contato@institutocf.org.br</p>
         </section>
         <section class="componentes-feedback">
-    <h2>Componentes de Feedback</h2>
+            <h2>Componentes de Feedback</h2>
 
-    <h3>Badges</h3>
+            <h3>Badges</h3>
 
-    <div class="badges">
-        <span class="badge badge-educacao">Educação</span>
-        <span class="badge badge-alimentacao">Alimentação</span>
-        <span class="badge badge-voluntariado">Voluntariado</span>
-    </div>
+            <div class="badges">
+                <span class="badge badge-educacao">Educação</span>
+                <span class="badge badge-alimentacao">Alimentação</span>
+                <span class="badge badge-voluntariado">Voluntariado</span>
+            </div>
 
-    <h3>Alertas</h3>
+            <h3>Alertas</h3>
 
-    <div class="alerta alerta-sucesso">
-        ✓ Cadastro realizado com sucesso!
-    </div>
+            <div class="alerta alerta-sucesso">
+                ✓ Cadastro realizado com sucesso!
+            </div>
 
-    <div class="alerta alerta-aviso">
-        ⚠ Verifique os dados antes de continuar.
-    </div>
+            <div class="alerta alerta-aviso">
+                ⚠ Verifique os dados antes de continuar.
+            </div>
 
-    <div class="alerta alerta-erro">
-        ✕ Não foi possível concluir a operação.
-    </div>
+            <div class="alerta alerta-erro">
+                ✕ Não foi possível concluir a operação.
+            </div>
 
-    <h3>Toast</h3>
+            <h3>Toast</h3>
 
-    <button type="button" onclick="mostrarToast()">
-        Testar notificação
-    </button>
-
-    <div id="toast" class="toast" role="status" aria-live="polite">
-        ✓ Sua solicitação foi enviada com sucesso!
-    </div>
-
-    <h3>Modal</h3>
-
-    <button type="button" onclick="abrirModal()">
-        Quero ser voluntário
-    </button>
-
-    <div id="modal" class="modal" role="dialog"
-         aria-modal="true"
-         aria-labelledby="titulo-modal">
-
-        <div class="modal-conteudo">
-
-            <button
-                type="button"
-                class="modal-fechar"
-                onclick="fecharModal()"
-                aria-label="Fechar modal">
-                ×
+            <button type="button" onclick="mostrarToast()">
+                Testar notificação
             </button>
 
-            <h2 id="titulo-modal">Seja um voluntário</h2>
+            <div id="toast" class="toast" role="status" aria-live="polite">
+                ✓ Sua solicitação foi enviada com sucesso!
+            </div>
 
-            <p>
-                Obrigado pelo interesse em participar dos
-                projetos do Instituto CF.
-            </p>
+            <h3>Modal</h3>
 
-            <button type="button" onclick="fecharModal()">
-                Entendi
+            <button type="button" onclick="abrirModal()">
+                Quero ser voluntário
             </button>
 
-        </div>
-    </div>
-</section>
+            <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
+
+                <div class="modal-conteudo">
+
+                    <button type="button" class="modal-fechar" onclick="fecharModal()" aria-label="Fechar modal">
+                        ×
+                    </button>
+
+                    <h2 id="titulo-modal">Seja um voluntário</h2>
+
+                    <p>
+                        Obrigado pelo interesse em participar dos
+                        projetos do Instituto CF.
+                    </p>
+
+                    <button type="button" onclick="fecharModal()">
+                        Entendi
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2026 Instituto CF - Criança Feliz</p>
     </footer>
-
+    <script src="
+    script.js"></script>
 </body>
 
 </html>

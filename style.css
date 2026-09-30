@@ -14,17 +14,14 @@
        PALETA DE CORES
        ------------------------- */
 
-    /* Cores primárias */
     --cor-primaria: #0877BD;
     --cor-primaria-escura: #075B8C;
     --cor-primaria-clara: #E9F5FC;
 
-    /* Cores secundárias */
     --cor-secundaria: #F7941D;
     --cor-amarelo: #FFC928;
     --cor-verde: #65A832;
 
-    /* Cores neutras */
     --cor-branco: #FFFFFF;
     --cor-cinza-claro: #F5F7F8;
     --cor-cinza: #666666;
@@ -35,25 +32,27 @@
        TIPOGRAFIA
        ------------------------- */
 
-    --fonte-principal: Arial, Helvetica, sans-serif;
+    --fonte-principal:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-    --fonte-xs: 0.875rem;  /* 14px */
-    --fonte-sm: 1rem;      /* 16px */
-    --fonte-md: 1.25rem;   /* 20px */
-    --fonte-lg: 1.75rem;   /* 28px */
-    --fonte-xl: 2.5rem;    /* 40px */
+    --fonte-xs: 0.875rem;
+    --fonte-sm: 1rem;
+    --fonte-md: 1.25rem;
+    --fonte-lg: 1.75rem;
+    --fonte-xl: 2.5rem;
 
     /* -------------------------
        ESPAÇAMENTOS
-       Escala baseada em 8px
        ------------------------- */
 
-    --espaco-1: 0.5rem;    /* 8px */
-    --espaco-2: 1rem;      /* 16px */
-    --espaco-3: 1.5rem;    /* 24px */
-    --espaco-4: 2rem;      /* 32px */
-    --espaco-5: 3rem;      /* 48px */
-    --espaco-6: 4rem;      /* 64px */
+    --espaco-1: 0.5rem;
+    --espaco-2: 1rem;
+    --espaco-3: 1.5rem;
+    --espaco-4: 2rem;
+    --espaco-5: 3rem;
+    --espaco-6: 4rem;
 
     /* -------------------------
        OUTROS PADRÕES
@@ -63,7 +62,9 @@
     --raio-md: 12px;
     --raio-lg: 24px;
 
-    --sombra: 0 4px 12px rgba(0, 0, 0, 0.10);
+    --sombra:
+        0 4px 12px
+        rgba(0, 0, 0, 0.10);
 }
 
 
@@ -77,27 +78,43 @@
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
-    font-family: var(--fonte-principal);
-    font-size: var(--fonte-sm);
+
+    font-family:
+        var(--fonte-principal);
+
+    font-size:
+        var(--fonte-sm);
+
     line-height: 1.6;
-    color: var(--cor-texto);
-    background-color: var(--cor-cinza-claro);
+
+    color:
+        var(--cor-texto);
+
+    background-color:
+        var(--cor-cinza-claro);
 }
 
+
 img {
+
     max-width: 100%;
     height: auto;
+
     display: block;
 }
+
 
 a {
     color: inherit;
 }
+
 
 h1,
 h2,
@@ -105,25 +122,39 @@ h3,
 h4,
 h5,
 h6 {
+
     line-height: 1.2;
-    margin-bottom: var(--espaco-2);
+
+    margin-bottom:
+        var(--espaco-2);
 }
+
 
 h1 {
-    font-size: var(--fonte-xl);
+    font-size:
+        var(--fonte-xl);
 }
+
 
 h2 {
-    font-size: var(--fonte-lg);
-    color: var(--cor-primaria-escura);
+
+    font-size:
+        var(--fonte-lg);
+
+    color:
+        var(--cor-primaria-escura);
 }
+
 
 h3 {
-    font-size: var(--fonte-md);
+    font-size:
+        var(--fonte-md);
 }
 
+
 p {
-    margin-bottom: var(--espaco-2);
+    margin-bottom:
+        var(--espaco-2);
 }
 
 
@@ -132,8 +163,10 @@ p {
    ========================================================= */
 
 .container {
+
     width: 90%;
     max-width: 1200px;
+
     margin: 0 auto;
 }
 
@@ -143,10 +176,16 @@ p {
    ========================================================= */
 
 .grid {
+
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--espaco-3);
+
+    grid-template-columns:
+        repeat(12, 1fr);
+
+    gap:
+        var(--espaco-3);
 }
+
 
 .col-12 {
     grid-column: span 12;
@@ -175,28 +214,48 @@ p {
    ========================================================= */
 
 header {
-    background-color: var(--cor-primaria);
-    color: var(--cor-branco);
-    padding: var(--espaco-3);
+
+    background-color:
+        var(--cor-primaria);
+
+    color:
+        var(--cor-branco);
+
+    padding:
+        var(--espaco-3);
 
     display: flex;
+
     align-items: center;
-    justify-content: space-between;
-    gap: var(--espaco-3);
+
+    justify-content:
+        space-between;
+
+    gap:
+        var(--espaco-3);
+
     flex-wrap: wrap;
 }
+
 
 header h1 {
     margin-bottom: 0;
 }
 
+
 .logo {
+
     display: flex;
+
     align-items: center;
-    gap: var(--espaco-2);
+
+    gap:
+        var(--espaco-2);
 }
 
+
 .logo img {
+
     width: 80px;
     height: auto;
 }
@@ -208,28 +267,50 @@ header h1 {
    ========================================================= */
 
 nav {
+
     display: flex;
+
     justify-content: center;
     align-items: center;
-    gap: var(--espaco-3);
+
+    gap:
+        var(--espaco-3);
+
     flex-wrap: wrap;
 }
 
+
 nav a {
-    color: var(--cor-branco);
+
+    color:
+        var(--cor-branco);
+
     text-decoration: none;
+
     font-weight: bold;
-    padding: var(--espaco-1) var(--espaco-2);
-    border-radius: var(--raio-sm);
+
+    padding:
+        var(--espaco-1)
+        var(--espaco-2);
+
+    border-radius:
+        var(--raio-sm);
+
     transition:
         background-color 0.3s ease,
         color 0.3s ease;
 }
 
+
 nav a:hover,
 nav a:focus {
-    background-color: var(--cor-branco);
-    color: var(--cor-primaria);
+
+    background-color:
+        var(--cor-branco);
+
+    color:
+        var(--cor-primaria);
+
     outline: none;
 }
 
@@ -239,22 +320,40 @@ nav a:focus {
    ========================================================= */
 
 main {
+
     width: 90%;
     max-width: 1200px;
+
     margin: 0 auto;
-    padding: var(--espaco-5) 0;
+
+    padding:
+        var(--espaco-5) 0;
 }
+
 
 section {
-    background-color: var(--cor-branco);
-    padding: var(--espaco-4);
-    margin-bottom: var(--espaco-4);
-    border-radius: var(--raio-md);
-    box-shadow: var(--sombra);
+
+    background-color:
+        var(--cor-branco);
+
+    padding:
+        var(--espaco-4);
+
+    margin-bottom:
+        var(--espaco-4);
+
+    border-radius:
+        var(--raio-md);
+
+    box-shadow:
+        var(--sombra);
 }
 
+
 section h2 {
-    margin-bottom: var(--espaco-3);
+
+    margin-bottom:
+        var(--espaco-3);
 }
 
 
@@ -263,19 +362,35 @@ section h2 {
    ========================================================= */
 
 .hero {
-    background-color: var(--cor-primaria-clara);
-    padding: var(--espaco-5);
-    border-radius: var(--raio-md);
-    margin-bottom: var(--espaco-4);
+
+    background-color:
+        var(--cor-primaria-clara);
+
+    padding:
+        var(--espaco-5);
+
+    border-radius:
+        var(--raio-md);
+
+    margin-bottom:
+        var(--espaco-4);
 }
+
 
 .hero h2 {
-    font-size: var(--fonte-xl);
-    color: var(--cor-primaria-escura);
+
+    font-size:
+        var(--fonte-xl);
+
+    color:
+        var(--cor-primaria-escura);
 }
 
+
 .hero p {
-    font-size: var(--fonte-md);
+
+    font-size:
+        var(--fonte-md);
 }
 
 
@@ -285,473 +400,151 @@ section h2 {
    ========================================================= */
 
 .projetos-grid {
+
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--espaco-3);
+
+    grid-template-columns:
+        repeat(12, 1fr);
+
+    gap:
+        var(--espaco-3);
 }
 
-.card {
-    grid-column: span 4;
 
-    background-color: var(--cor-branco);
-    border-radius: var(--raio-md);
-    box-shadow: var(--sombra);
+.card {
+
+    grid-column:
+        span 4;
+
+    background-color:
+        var(--cor-branco);
+
+    border-radius:
+        var(--raio-md);
+
+    box-shadow:
+        var(--sombra);
+
     overflow: hidden;
 
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: var(--espaco-2);
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+    gap:
+        var(--espaco-2);
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
 
+
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.15);
 }
 
+
 .card img {
+
     width: 100%;
     height: 220px;
+
     object-fit: cover;
 }
 
+
 .card-conteudo {
-    padding: var(--espaco-3);
+
+    padding:
+        var(--espaco-3);
 
     display: flex;
-    flex-direction: column;
-    gap: var(--espaco-2);
+
+    flex-direction:
+        column;
+
+    gap:
+        var(--espaco-2);
+
     flex-grow: 1;
 }
 
+
 .card h3 {
-    color: var(--cor-primaria);
+
+    color:
+        var(--cor-primaria);
 }
 
 
 /* =========================================================
    10. ÁREA DE AÇÕES / BOTÕES
-   FLEXBOX
    ========================================================= */
 
 .acoes {
+
     display: flex;
+
     justify-content: center;
     align-items: center;
-    gap: var(--espaco-2);
+
+    gap:
+        var(--espaco-2);
+
     flex-wrap: wrap;
-    margin-top: var(--espaco-3);
+
+    margin-top:
+        var(--espaco-3);
 }
+
 
 button,
 .botao,
 input[type="submit"] {
+
     display: inline-block;
-    background-color: var(--cor-primaria);
-    color: var(--cor-branco);
 
-    border: none;
-    border-radius: var(--raio-sm);
+    background-color:
+        var(--cor-primaria);
 
-    padding: var(--espaco-2) var(--espaco-3);
+    color:
+        var(--cor-branco);
 
-    font-family: var(--fonte-principal);
-    font-size: var(--fonte-sm);
+    border:
+        2px solid transparent;
+
+    border-radius:
+        var(--raio-sm);
+
+    padding:
+        var(--espaco-2)
+        var(--espaco-3);
+
+    font-family:
+        var(--fonte-principal);
+
+    font-size:
+        var(--fonte-sm);
+
     font-weight: bold;
 
     text-decoration: none;
+
     cursor: pointer;
 
-    transition:
-        background-color 0.3s ease,
-        transform 0.2s ease;
-}
-
-button:hover,
-.botao:hover,
-input[type="submit"]:hover {
-    background-color: var(--cor-primaria-escura);
-    transform: translateY(-2px);
-}
-
-button:focus,
-.botao:focus,
-input[type="submit"]:focus {
-    outline: 3px solid var(--cor-amarelo);
-    outline-offset: 3px;
-}
-
-
-/* =========================================================
-   11. FORMULÁRIOS
-   cadastro.html
-   ========================================================= */
-
-form {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: var(--cor-branco);
-    padding: var(--espaco-4);
-    border-radius: var(--raio-md);
-    box-shadow: var(--sombra);
-}
-
-fieldset {
-    border: 2px solid var(--cor-primaria-clara);
-    border-radius: var(--raio-md);
-    padding: var(--espaco-3);
-    margin-bottom: var(--espaco-3);
-}
-
-legend {
-    color: var(--cor-primaria-escura);
-    font-size: var(--fonte-md);
-    font-weight: bold;
-    padding: 0 var(--espaco-1);
-}
-
-.campo {
-    margin-bottom: var(--espaco-3);
-
-    display: flex;
-    flex-direction: column;
-    gap: var(--espaco-1);
-}
-
-label {
-    font-weight: bold;
-    color: var(--cor-texto);
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    padding: var(--espaco-2);
-
-    border: 1px solid var(--cor-cinza);
-    border-radius: var(--raio-sm);
-
-    font-family: var(--fonte-principal);
-    font-size: var(--fonte-sm);
-
-    background-color: var(--cor-branco);
-    color: var(--cor-texto);
-}
-
-textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: var(--cor-primaria);
-    outline: 3px solid rgba(8, 119, 189, 0.20);
-}
-
-
-/* =========================================================
-   12. INFORMAÇÕES DE CONTATO
-   ========================================================= */
-
-.contato {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: var(--espaco-3);
-    flex-wrap: wrap;
-}
-
-.contato > div {
-    flex: 1 1 250px;
-}
-
-
-/* =========================================================
-   13. RODAPÉ
-   FLEXBOX
-   ========================================================= */
-
-footer {
-    background-color: var(--cor-primaria-escura);
-    color: var(--cor-branco);
-
-    padding: var(--espaco-4);
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--espaco-2);
-    flex-wrap: wrap;
-}
-
-footer p {
-    margin-bottom: 0;
-}
-
-footer a {
-    color: var(--cor-amarelo);
-}
-
-
-/* =========================================================
-   14. ACESSIBILIDADE
-   ========================================================= */
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-    outline: 3px solid var(--cor-amarelo);
-    outline-offset: 3px;
-}
-
-
-/* =========================================================
-   15. BREAKPOINT 1
-   CELULARES PEQUENOS - ATÉ 480px
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-    .container,
-    main {
-        width: 94%;
-    }
-
-    header {
-        flex-direction: column;
-        text-align: center;
-        padding: var(--espaco-2);
-    }
-
-    header h1 {
-        font-size: var(--fonte-lg);
-    }
-
-    nav {
-        width: 100%;
-        flex-direction: column;
-        gap: var(--espaco-1);
-    }
-
-    nav a {
-        width: 100%;
-        text-align: center;
-    }
-
-    .grid,
-    .projetos-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .col-3,
-    .col-4,
-    .col-6,
-    .col-8,
-    .col-12,
-    .card {
-        grid-column: 1 / -1;
-    }
-
-    section {
-        padding: var(--espaco-2);
-    }
-
-    .hero {
-        padding: var(--espaco-3);
-    }
-
-    .hero h2 {
-        font-size: var(--fonte-lg);
-    }
-
-    .acoes {
-        flex-direction: column;
-    }
-
-    .acoes .botao,
-    .acoes button {
-        width: 100%;
-        text-align: center;
-    }
-
-    .contato {
-        flex-direction: column;
-    }
-
-    footer {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    form {
-        padding: var(--espaco-2);
-    }
-}
-
-
-/* =========================================================
-   16. BREAKPOINT 2
-   CELULARES GRANDES / TABLETS
-   481px ATÉ 768px
-   ========================================================= */
-
-@media (min-width: 481px) and (max-width: 768px) {
-
-    .container,
-    main {
-        width: 92%;
-    }
-
-    header {
-        justify-content: center;
-        text-align: center;
-    }
-
-    nav {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .grid,
-    .projetos-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .col-3,
-    .col-4,
-    .col-6,
-    .col-8 {
-        grid-column: auto;
-    }
-
-    .col-12 {
-        grid-column: 1 / -1;
-    }
-
-    .card {
-        grid-column: auto;
-    }
-
-    .hero {
-        padding: var(--espaco-4);
-    }
-
-    footer {
-        justify-content: center;
-        text-align: center;
-    }
-}
-
-
-/* =========================================================
-   17. BREAKPOINT 3
-   TABLETS / NOTEBOOKS MENORES
-   769px ATÉ 1024px
-   ========================================================= */
-
-@media (min-width: 769px) and (max-width: 1024px) {
-
-    .container,
-    main {
-        width: 90%;
-    }
-
-    .grid,
-    .projetos-grid {
-        grid-template-columns: repeat(12, 1fr);
-        gap: var(--espaco-2);
-    }
-
-    .col-3,
-    .col-4 {
-        grid-column: span 6;
-    }
-
-    .col-6 {
-        grid-column: span 6;
-    }
-
-    .col-8 {
-        grid-column: span 8;
-    }
-
-    .col-12 {
-        grid-column: span 12;
-    }
-
-    .card {
-        grid-column: span 6;
-    }
-}
-
-
-/* =========================================================
-   18. BREAKPOINT 4
-   NOTEBOOKS / DESKTOPS
-   1025px ATÉ 1280px
-   ========================================================= */
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-
-    .container,
-    main {
-        max-width: 1200px;
-    }
-
-    .grid,
-    .projetos-grid {
-        grid-template-columns: repeat(12, 1fr);
-        gap: var(--espaco-3);
-    }
-
-    .card {
-        grid-column: span 4;
-    }
-}
-
-
-/* =========================================================
-   19. BREAKPOINT 5
-   DESKTOPS PANORÂMICOS - ACIMA DE 1280px
-   ========================================================= */
-
-@media (min-width: 1281px) {
-
-    .container,
-    main {
-        max-width: 1400px;
-    }
-
-    .grid,
-    .projetos-grid {
-        grid-template-columns: repeat(12, 1fr);
-        gap: var(--espaco-4);
-    }
-
-    .card {
-        grid-column: span 4;
-    }
-}
-/* =========================================
-   ESTADOS INTERATIVOS DOS BOTÕES
-   ========================================= */
-
-button,
-.botao,
-input[type="submit"] {
-    background-color: var(--cor-primaria);
-    color: var(--cor-branco);
-    border: 2px solid transparent;
-    box-shadow: var(--sombra);
+    box-shadow:
+        var(--sombra);
 
     transition:
         background-color 0.3s ease,
@@ -760,163 +553,630 @@ input[type="submit"] {
         border-color 0.3s ease;
 }
 
-/* Mouse sobre o botão */
+
 button:hover,
 .botao:hover,
 input[type="submit"]:hover {
-    background-color: var(--cor-primaria-escura);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+
+    background-color:
+        var(--cor-primaria-escura);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 6px 16px
+        rgba(0, 0, 0, 0.18);
 }
 
-/* Navegação por teclado */
-button:focus-visible,
-.botao:focus-visible,
-input[type="submit"]:focus-visible {
-    outline: 3px solid var(--cor-amarelo);
+
+button:focus,
+.botao:focus,
+input[type="submit"]:focus {
+
+    outline:
+        3px solid
+        var(--cor-amarelo);
+
     outline-offset: 3px;
 }
 
-/* Botão sendo pressionado */
+
 button:active,
 .botao:active,
 input[type="submit"]:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+    transform:
+        translateY(0);
+
+    box-shadow:
+        0 2px 6px
+        rgba(0, 0, 0, 0.15);
 }
 
-/* Botão desabilitado */
+
 button:disabled,
 input[type="submit"]:disabled {
-    background-color: var(--cor-cinza);
-    color: var(--cor-cinza-claro);
+
+    background-color:
+        var(--cor-cinza);
+
+    color:
+        var(--cor-cinza-claro);
+
     cursor: not-allowed;
+
     opacity: 0.6;
+
     box-shadow: none;
 }
 
 
-/* =========================================
-   VALIDAÇÃO VISUAL DOS FORMULÁRIOS
-   ========================================= */
+/* =========================================================
+   11. FORMULÁRIOS
+   ========================================================= */
 
-/* Campo em foco */
+form {
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    background-color:
+        var(--cor-branco);
+
+    padding:
+        var(--espaco-4);
+
+    border-radius:
+        var(--raio-md);
+
+    box-shadow:
+        var(--sombra);
+}
+
+
+fieldset {
+
+    border:
+        2px solid
+        var(--cor-primaria-clara);
+
+    border-radius:
+        var(--raio-md);
+
+    padding:
+        var(--espaco-3);
+
+    margin-bottom:
+        var(--espaco-3);
+}
+
+
+legend {
+
+    color:
+        var(--cor-primaria-escura);
+
+    font-size:
+        var(--fonte-md);
+
+    font-weight: bold;
+
+    padding:
+        0 var(--espaco-1);
+}
+
+
+.campo {
+
+    margin-bottom:
+        var(--espaco-3);
+
+    display: flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        var(--espaco-1);
+}
+
+
+label {
+
+    font-weight: bold;
+
+    color:
+        var(--cor-texto);
+}
+
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    padding:
+        var(--espaco-2);
+
+    border:
+        1px solid
+        var(--cor-cinza);
+
+    border-radius:
+        var(--raio-sm);
+
+    font-family:
+        var(--fonte-principal);
+
+    font-size:
+        var(--fonte-sm);
+
+    background-color:
+        var(--cor-branco);
+
+    color:
+        var(--cor-texto);
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        outline 0.2s ease;
+}
+
+
+textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: var(--cor-primaria);
-    outline: 3px solid rgba(8, 119, 189, 0.20);
+
+    border-color:
+        var(--cor-primaria);
+
+    outline:
+        3px solid
+        rgba(8, 119, 189, 0.20);
 }
 
-/* Campo preenchido corretamente */
-input:not(:placeholder-shown):valid {
-    border: 2px solid var(--cor-verde);
-    background-color: #F3FAEE;
-}
-
-/* Campo com preenchimento inválido */
-input:not(:placeholder-shown):invalid {
-    border: 2px solid #C62828;
-    background-color: #FFF1F1;
-}
-
-/* Mantém o foco visível mesmo durante validação */
-input:focus:valid {
-    outline: 3px solid rgba(101, 168, 50, 0.20);
-}
-
-input:focus:invalid {
-    outline: 3px solid rgba(198, 40, 40, 0.20);
-}
 
 /* =========================================================
-   COMPONENTES DE FEEDBACK
+   12. VALIDAÇÃO DO FORMULÁRIO
+   CONTROLADA PELO JAVASCRIPT
+   ========================================================= */
+
+/*
+   A validação visual agora é controlada pelas classes
+   adicionadas pelo JavaScript.
+
+   Isso evita conflito entre :valid / :invalid e as
+   máscaras de CPF, telefone e CEP.
+*/
+
+
+input.campo-valido,
+select.campo-valido,
+textarea.campo-valido {
+
+    border:
+        2px solid
+        var(--cor-verde);
+
+    background-color:
+        #F3FAEE;
+}
+
+
+input.campo-invalido,
+select.campo-invalido,
+textarea.campo-invalido {
+
+    border:
+        2px solid
+        #C62828;
+
+    background-color:
+        #FFF1F1;
+}
+
+
+input.campo-valido:focus,
+select.campo-valido:focus,
+textarea.campo-valido:focus {
+
+    outline:
+        3px solid
+        rgba(101, 168, 50, 0.20);
+}
+
+
+input.campo-invalido:focus,
+select.campo-invalido:focus,
+textarea.campo-invalido:focus {
+
+    outline:
+        3px solid
+        rgba(198, 40, 40, 0.20);
+}
+
+
+.mensagem-erro {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-size:
+        var(--fonte-xs);
+
+    color:
+        #C62828;
+
+    font-weight: bold;
+}
+
+
+.mensagem-formulario {
+
+    margin-bottom:
+        var(--espaco-3);
+}
+
+
+/* =========================================================
+   13. CAMPOS DE ENDEREÇO / CEP
+   ========================================================= */
+
+#cep,
+#cpf,
+#telefone {
+
+    font-variant-numeric:
+        tabular-nums;
+}
+
+
+#numero {
+
+    max-width: 220px;
+}
+
+
+/* =========================================================
+   14. HISTÓRICO DE CADASTROS
+   ========================================================= */
+
+.historico-cadastros {
+
+    margin-top:
+        var(--espaco-4);
+}
+
+
+.historico-cadastros h3 {
+
+    color:
+        var(--cor-primaria-escura);
+
+    margin-bottom:
+        var(--espaco-3);
+}
+
+
+#lista-cadastros {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        var(--espaco-3);
+}
+
+
+.cadastro-salvo {
+
+    grid-column: auto;
+
+    padding:
+        var(--espaco-3);
+
+    border:
+        1px solid
+        var(--cor-primaria-clara);
+}
+
+
+.cadastro-salvo h4 {
+
+    color:
+        var(--cor-primaria);
+
+    margin-bottom:
+        var(--espaco-2);
+}
+
+
+.cadastro-salvo p {
+
+    margin-bottom:
+        var(--espaco-1);
+}
+
+
+.cadastro-salvo button {
+
+    margin-top:
+        var(--espaco-2);
+}
+
+
+/* =========================================================
+   15. INFORMAÇÕES DE CONTATO
+   ========================================================= */
+
+.contato {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        flex-start;
+
+    gap:
+        var(--espaco-3);
+
+    flex-wrap: wrap;
+}
+
+
+.contato > div {
+
+    flex:
+        1 1 250px;
+}
+
+
+/* =========================================================
+   16. RODAPÉ
+   ========================================================= */
+
+footer {
+
+    background-color:
+        var(--cor-primaria-escura);
+
+    color:
+        var(--cor-branco);
+
+    padding:
+        var(--espaco-4);
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    gap:
+        var(--espaco-2);
+
+    flex-wrap: wrap;
+}
+
+
+footer p {
+    margin-bottom: 0;
+}
+
+
+footer a {
+
+    color:
+        var(--cor-amarelo);
+}
+
+
+/* =========================================================
+   17. ACESSIBILIDADE
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+
+    outline:
+        3px solid
+        var(--cor-amarelo);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   18. COMPONENTES DE FEEDBACK
    ========================================================= */
 
 .componentes-feedback h3 {
-    margin-top: var(--espaco-4);
+
+    margin-top:
+        var(--espaco-4);
 }
 
 
-/* BADGES */
+/* -------------------------
+   BADGES
+   ------------------------- */
 
 .badges {
+
     display: flex;
+
     flex-wrap: wrap;
-    gap: var(--espaco-1);
-    margin-bottom: var(--espaco-3);
+
+    gap:
+        var(--espaco-1);
+
+    margin-bottom:
+        var(--espaco-3);
 }
+
 
 .badge {
+
     display: inline-block;
-    padding: 6px 12px;
-    border-radius: var(--raio-lg);
-    font-size: var(--fonte-xs);
+
+    padding:
+        6px 12px;
+
+    border-radius:
+        var(--raio-lg);
+
+    font-size:
+        var(--fonte-xs);
+
     font-weight: bold;
 }
+
 
 .badge-educacao {
-    background-color: var(--cor-primaria-clara);
-    color: var(--cor-primaria-escura);
+
+    background-color:
+        var(--cor-primaria-clara);
+
+    color:
+        var(--cor-primaria-escura);
 }
+
 
 .badge-alimentacao {
-    background-color: var(--cor-amarelo);
-    color: var(--cor-texto);
+
+    background-color:
+        var(--cor-amarelo);
+
+    color:
+        var(--cor-texto);
 }
+
 
 .badge-voluntariado {
-    background-color: var(--cor-verde);
-    color: var(--cor-branco);
+
+    background-color:
+        var(--cor-verde);
+
+    color:
+        var(--cor-branco);
 }
 
 
-/* ALERTAS */
+/* -------------------------
+   ALERTAS
+   ------------------------- */
 
 .alerta {
-    padding: var(--espaco-2);
-    margin-bottom: var(--espaco-2);
-    border-radius: var(--raio-sm);
-    border-left: 5px solid;
+
+    padding:
+        var(--espaco-2);
+
+    margin-bottom:
+        var(--espaco-2);
+
+    border-radius:
+        var(--raio-sm);
+
+    border-left:
+        5px solid;
+
     font-weight: bold;
 }
 
+
 .alerta-sucesso {
-    background-color: #F3FAEE;
-    color: #35661B;
-    border-color: var(--cor-verde);
+
+    background-color:
+        #F3FAEE;
+
+    color:
+        #35661B;
+
+    border-color:
+        var(--cor-verde);
 }
+
 
 .alerta-aviso {
-    background-color: #FFF8E1;
-    color: #795900;
-    border-color: var(--cor-amarelo);
+
+    background-color:
+        #FFF8E1;
+
+    color:
+        #795900;
+
+    border-color:
+        var(--cor-amarelo);
 }
+
 
 .alerta-erro {
-    background-color: #FFF1F1;
-    color: #9E1C1C;
-    border-color: #C62828;
+
+    background-color:
+        #FFF1F1;
+
+    color:
+        #9E1C1C;
+
+    border-color:
+        #C62828;
 }
 
 
-/* TOAST */
+/* -------------------------
+   TOAST
+   ------------------------- */
 
 .toast {
+
     position: fixed;
+
     right: 20px;
     bottom: 20px;
 
-    background-color: var(--cor-primaria-escura);
-    color: var(--cor-branco);
+    background-color:
+        var(--cor-primaria-escura);
 
-    padding: var(--espaco-2) var(--espaco-3);
-    border-radius: var(--raio-sm);
-    box-shadow: var(--sombra);
+    color:
+        var(--cor-branco);
+
+    padding:
+        var(--espaco-2)
+        var(--espaco-3);
+
+    border-radius:
+        var(--raio-sm);
+
+    box-shadow:
+        var(--sombra);
 
     opacity: 0;
+
     visibility: hidden;
-    transform: translateY(20px);
+
+    transform:
+        translateY(20px);
 
     transition:
         opacity 0.3s ease,
@@ -926,69 +1186,496 @@ input:focus:invalid {
     z-index: 2000;
 }
 
+
 .toast.ativo {
+
     opacity: 1;
+
     visibility: visible;
-    transform: translateY(0);
+
+    transform:
+        translateY(0);
 }
 
 
-/* MODAL */
+/* -------------------------
+   MODAL
+   ------------------------- */
 
 .modal {
+
     position: fixed;
+
     inset: 0;
 
     display: none;
+
     align-items: center;
+
     justify-content: center;
 
-    padding: var(--espaco-2);
+    padding:
+        var(--espaco-2);
 
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color:
+        rgba(0, 0, 0, 0.55);
 
     z-index: 3000;
 }
 
+
 .modal.ativo {
+
     display: flex;
 }
 
+
 .modal-conteudo {
+
     position: relative;
 
     width: 100%;
+
     max-width: 500px;
 
-    background-color: var(--cor-branco);
-    color: var(--cor-texto);
+    background-color:
+        var(--cor-branco);
 
-    padding: var(--espaco-4);
+    color:
+        var(--cor-texto);
 
-    border-radius: var(--raio-md);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    padding:
+        var(--espaco-4);
+
+    border-radius:
+        var(--raio-md);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.25);
 }
+
 
 .modal-conteudo h2 {
-    color: var(--cor-primaria-escura);
+
+    color:
+        var(--cor-primaria-escura);
 }
 
+
 .modal-fechar {
+
     position: absolute;
+
     top: 10px;
     right: 12px;
 
     background: transparent;
-    color: var(--cor-texto);
 
-    padding: 4px 10px;
+    color:
+        var(--cor-texto);
 
-    font-size: 1.5rem;
+    padding:
+        4px 10px;
+
+    font-size:
+        1.5rem;
 
     box-shadow: none;
 }
 
+
 .modal-fechar:hover {
-    background-color: var(--cor-cinza-claro);
-    color: var(--cor-primaria-escura);
+
+    background-color:
+        var(--cor-cinza-claro);
+
+    color:
+        var(--cor-primaria-escura);
+}
+
+
+/* =========================================================
+   19. BREAKPOINT 1
+   CELULARES PEQUENOS - ATÉ 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .container,
+    main {
+
+        width: 94%;
+    }
+
+
+    header {
+
+        flex-direction:
+            column;
+
+        text-align:
+            center;
+
+        padding:
+            var(--espaco-2);
+    }
+
+
+    header h1 {
+
+        font-size:
+            var(--fonte-lg);
+    }
+
+
+    nav {
+
+        width: 100%;
+
+        flex-direction:
+            column;
+
+        gap:
+            var(--espaco-1);
+    }
+
+
+    nav a {
+
+        width: 100%;
+
+        text-align:
+            center;
+    }
+
+
+    .grid,
+    .projetos-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .col-3,
+    .col-4,
+    .col-6,
+    .col-8,
+    .col-12,
+    .card {
+
+        grid-column:
+            1 / -1;
+    }
+
+
+    section {
+
+        padding:
+            var(--espaco-2);
+    }
+
+
+    .hero {
+
+        padding:
+            var(--espaco-3);
+    }
+
+
+    .hero h2 {
+
+        font-size:
+            var(--fonte-lg);
+    }
+
+
+    .acoes {
+
+        flex-direction:
+            column;
+    }
+
+
+    .acoes .botao,
+    .acoes button {
+
+        width: 100%;
+
+        text-align:
+            center;
+    }
+
+
+    .contato {
+
+        flex-direction:
+            column;
+    }
+
+
+    footer {
+
+        flex-direction:
+            column;
+
+        text-align:
+            center;
+    }
+
+
+    form {
+
+        padding:
+            var(--espaco-2);
+    }
+
+
+    #numero {
+
+        max-width: 100%;
+    }
+
+
+    #lista-cadastros {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+/* =========================================================
+   20. BREAKPOINT 2
+   CELULARES GRANDES / TABLETS
+   481px ATÉ 768px
+   ========================================================= */
+
+@media (
+    min-width: 481px
+) and (
+    max-width: 768px
+) {
+
+    .container,
+    main {
+
+        width: 92%;
+    }
+
+
+    header {
+
+        justify-content:
+            center;
+
+        text-align:
+            center;
+    }
+
+
+    nav {
+
+        justify-content:
+            center;
+
+        flex-wrap:
+            wrap;
+    }
+
+
+    .grid,
+    .projetos-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .col-3,
+    .col-4,
+    .col-6,
+    .col-8 {
+
+        grid-column: auto;
+    }
+
+
+    .col-12 {
+
+        grid-column:
+            1 / -1;
+    }
+
+
+    .card {
+
+        grid-column:
+            auto;
+    }
+
+
+    .hero {
+
+        padding:
+            var(--espaco-4);
+    }
+
+
+    footer {
+
+        justify-content:
+            center;
+
+        text-align:
+            center;
+    }
+
+
+    #lista-cadastros {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+/* =========================================================
+   21. BREAKPOINT 3
+   TABLETS / NOTEBOOKS MENORES
+   769px ATÉ 1024px
+   ========================================================= */
+
+@media (
+    min-width: 769px
+) and (
+    max-width: 1024px
+) {
+
+    .container,
+    main {
+
+        width: 90%;
+    }
+
+
+    .grid,
+    .projetos-grid {
+
+        grid-template-columns:
+            repeat(12, 1fr);
+
+        gap:
+            var(--espaco-2);
+    }
+
+
+    .col-3,
+    .col-4 {
+
+        grid-column:
+            span 6;
+    }
+
+
+    .col-6 {
+
+        grid-column:
+            span 6;
+    }
+
+
+    .col-8 {
+
+        grid-column:
+            span 8;
+    }
+
+
+    .col-12 {
+
+        grid-column:
+            span 12;
+    }
+
+
+    .card {
+
+        grid-column:
+            span 6;
+    }
+}
+
+
+/* =========================================================
+   22. BREAKPOINT 4
+   NOTEBOOKS / DESKTOPS
+   1025px ATÉ 1280px
+   ========================================================= */
+
+@media (
+    min-width: 1025px
+) and (
+    max-width: 1280px
+) {
+
+    .container,
+    main {
+
+        max-width:
+            1200px;
+    }
+
+
+    .grid,
+    .projetos-grid {
+
+        grid-template-columns:
+            repeat(12, 1fr);
+
+        gap:
+            var(--espaco-3);
+    }
+
+
+    .card {
+
+        grid-column:
+            span 4;
+    }
+}
+
+
+/* =========================================================
+   23. BREAKPOINT 5
+   DESKTOPS PANORÂMICOS - ACIMA DE 1280px
+   ========================================================= */
+
+@media (min-width: 1281px) {
+
+    .container,
+    main {
+
+        max-width:
+            1400px;
+    }
+
+
+    .grid,
+    .projetos-grid {
+
+        grid-template-columns:
+            repeat(12, 1fr);
+
+        gap:
+            var(--espaco-4);
+    }
+
+
+    .card {
+
+        grid-column:
+            span 4;
+    }
 }
