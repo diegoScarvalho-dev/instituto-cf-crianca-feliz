@@ -1,4 +1,4 @@
-// =========================================================
+    // =========================================================
 // INSTITUTO CF - CRIANÇA FELIZ
 // EXPERIÊNCIA PRÁTICA II
 // ARQUIVO PRINCIPAL DA APLICAÇÃO
@@ -60,10 +60,12 @@ if (botaoMenu && menuPrincipal) {
                 "ativo"
             );
 
+
             const menuAberto =
                 menuPrincipal.classList.contains(
                     "ativo"
                 );
+
 
             botaoMenu.setAttribute(
                 "aria-expanded",
@@ -76,7 +78,205 @@ if (botaoMenu && menuPrincipal) {
 
 
 // =========================================================
-// 3. TOAST
+// 3. ALTO CONTRASTE
+// =========================================================
+
+const CHAVE_CONTRASTE =
+    "institutoCFAltoContraste";
+
+
+const botaoContraste =
+    document.getElementById(
+        "botao-contraste"
+    );
+
+
+// =========================================================
+// 4. ATUALIZAR BOTÃO DE CONTRASTE
+// =========================================================
+
+function atualizarBotaoContraste(
+    ativo
+) {
+
+    if (!botaoContraste) {
+        return;
+    }
+
+
+    botaoContraste.setAttribute(
+        "aria-pressed",
+        String(ativo)
+    );
+
+
+    if (ativo) {
+
+        botaoContraste.setAttribute(
+            "aria-label",
+            "Desativar modo de alto contraste"
+        );
+
+
+        botaoContraste.textContent =
+            "◐ Contraste normal";
+
+    }
+
+    else {
+
+        botaoContraste.setAttribute(
+            "aria-label",
+            "Ativar modo de alto contraste"
+        );
+
+
+        botaoContraste.textContent =
+            "◐ Alto contraste";
+
+    }
+}
+
+
+// =========================================================
+// 5. APLICAR ALTO CONTRASTE
+// =========================================================
+
+function aplicarAltoContraste(
+    ativo
+) {
+
+    const elementoHTML =
+        document.documentElement;
+
+
+    if (ativo) {
+
+        elementoHTML.setAttribute(
+            "data-contraste",
+            "alto"
+        );
+
+    }
+
+    else {
+
+        elementoHTML.removeAttribute(
+            "data-contraste"
+        );
+
+    }
+
+
+    atualizarBotaoContraste(
+        ativo
+    );
+}
+
+
+// =========================================================
+// 6. RECUPERAR PREFERÊNCIA DE CONTRASTE
+// =========================================================
+
+function restaurarPreferenciaContraste() {
+
+    try {
+
+        const preferencia =
+            localStorage.getItem(
+                CHAVE_CONTRASTE
+            );
+
+
+        const contrasteAtivo =
+            preferencia === "true";
+
+
+        aplicarAltoContraste(
+            contrasteAtivo
+        );
+
+    }
+
+    catch (erro) {
+
+        console.error(
+            "Erro ao recuperar preferência de contraste:",
+            erro
+        );
+
+
+        aplicarAltoContraste(
+            false
+        );
+
+    }
+}
+
+
+// =========================================================
+// 7. ALTERNAR CONTRASTE
+// =========================================================
+
+function alternarContraste() {
+
+    const elementoHTML =
+        document.documentElement;
+
+
+    const contrasteAtivo =
+        elementoHTML.getAttribute(
+            "data-contraste"
+        ) === "alto";
+
+
+    const novoEstado =
+        !contrasteAtivo;
+
+
+    aplicarAltoContraste(
+        novoEstado
+    );
+
+
+    try {
+
+        localStorage.setItem(
+            CHAVE_CONTRASTE,
+            String(novoEstado)
+        );
+
+    }
+
+    catch (erro) {
+
+        console.error(
+            "Erro ao salvar preferência de contraste:",
+            erro
+        );
+
+    }
+}
+
+
+// =========================================================
+// 8. CONFIGURAR BOTÃO DE CONTRASTE
+// =========================================================
+
+if (botaoContraste) {
+
+    botaoContraste.addEventListener(
+        "click",
+        alternarContraste
+    );
+}
+
+
+restaurarPreferenciaContraste();
+
+
+// =========================================================
+// 9. TOAST
 // =========================================================
 
 function mostrarToast() {
@@ -90,7 +290,9 @@ function mostrarToast() {
     }
 
 
-    toast.classList.add("ativo");
+    toast.classList.add(
+        "ativo"
+    );
 
 
     setTimeout(
@@ -107,13 +309,70 @@ function mostrarToast() {
 
 
 // =========================================================
-// 4. MODAL
+// 10. MODAL ACESSÍVEL
+// =========================================================
+
+let elementoFocoAnterior =
+    null;
+
+
+// =========================================================
+// 11. OBTER ELEMENTOS FOCÁVEIS DO MODAL
+// =========================================================
+
+function obterElementosFocaveisModal(
+    modal
+) {
+
+    if (!modal) {
+        return [];
+    }
+
+
+    const seletores = [
+
+        "a[href]",
+
+        "button:not([disabled])",
+
+        "input:not([disabled])",
+
+        "select:not([disabled])",
+
+        "textarea:not([disabled])",
+
+        "[tabindex]:not([tabindex='-1'])"
+
+    ];
+
+
+    return Array.from(
+        modal.querySelectorAll(
+            seletores.join(",")
+        )
+    ).filter(
+        (elemento) => {
+
+            return (
+                elemento.offsetWidth > 0 ||
+                elemento.offsetHeight > 0
+            );
+
+        }
+    );
+}
+
+
+// =========================================================
+// 12. ABRIR MODAL
 // =========================================================
 
 function abrirModal() {
 
     const modal =
-        document.getElementById("modal");
+        document.getElementById(
+            "modal"
+        );
 
 
     if (!modal) {
@@ -121,32 +380,243 @@ function abrirModal() {
     }
 
 
-    modal.classList.add("ativo");
+    // Guarda o elemento que abriu o modal.
+    elementoFocoAnterior =
+        document.activeElement;
+
+
+    // Exibe o diálogo.
+    modal.classList.add(
+        "ativo"
+    );
+
+
+    // Localiza os elementos que podem
+    // receber foco.
+    const elementosFocaveis =
+        obterElementosFocaveisModal(
+            modal
+        );
+
+
+    // Move o foco para o primeiro
+    // elemento interativo.
+    if (
+        elementosFocaveis.length > 0
+    ) {
+
+        elementosFocaveis[0]
+            .focus();
+
+    }
+
+    else {
+
+        const conteudoModal =
+            modal.querySelector(
+                ".modal-conteudo"
+            );
+
+
+        if (conteudoModal) {
+
+            conteudoModal.focus();
+
+        }
+
+    }
 }
 
+
+// =========================================================
+// 13. FECHAR MODAL
+// =========================================================
 
 function fecharModal() {
 
     const modal =
-        document.getElementById("modal");
+        document.getElementById(
+            "modal"
+        );
 
 
-    if (!modal) {
+    if (
+        !modal ||
+        !modal.classList.contains(
+            "ativo"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    modal.classList.remove(
+        "ativo"
+    );
+
+
+    // Retorna o foco ao elemento
+    // que abriu o modal.
+    if (
+        elementoFocoAnterior &&
+        typeof elementoFocoAnterior.focus ===
+            "function"
+    ) {
+
+        elementoFocoAnterior.focus();
+
+    }
+
+
+    elementoFocoAnterior =
+        null;
+}
+
+
+// =========================================================
+// 14. CONTROLAR FOCO DENTRO DO MODAL
+// =========================================================
+
+function controlarFocoModal(
+    evento
+) {
+
+    const modal =
+        document.getElementById(
+            "modal"
+        );
+
+
+    if (
+        !modal ||
+        !modal.classList.contains(
+            "ativo"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    // =====================================================
+    // ESC
+    // =====================================================
+
+    if (
+        evento.key === "Escape"
+    ) {
+
+        evento.preventDefault();
+
+        fecharModal();
+
         return;
     }
 
 
-    modal.classList.remove("ativo");
+    // =====================================================
+    // SOMENTE TAB E SHIFT + TAB
+    // =====================================================
+
+    if (
+        evento.key !== "Tab"
+    ) {
+
+        return;
+    }
+
+
+    const elementosFocaveis =
+        obterElementosFocaveisModal(
+            modal
+        );
+
+
+    if (
+        elementosFocaveis.length === 0
+    ) {
+
+        evento.preventDefault();
+
+
+        const conteudoModal =
+            modal.querySelector(
+                ".modal-conteudo"
+            );
+
+
+        if (conteudoModal) {
+
+            conteudoModal.focus();
+
+        }
+
+
+        return;
+    }
+
+
+    const primeiroElemento =
+        elementosFocaveis[0];
+
+
+    const ultimoElemento =
+        elementosFocaveis[
+            elementosFocaveis.length - 1
+        ];
+
+
+    // =====================================================
+    // SHIFT + TAB
+    // =====================================================
+
+    if (
+        evento.shiftKey &&
+        document.activeElement ===
+            primeiroElemento
+    ) {
+
+        evento.preventDefault();
+
+        ultimoElemento.focus();
+
+        return;
+    }
+
+
+    // =====================================================
+    // TAB
+    // =====================================================
+
+    if (
+        !evento.shiftKey &&
+        document.activeElement ===
+            ultimoElemento
+    ) {
+
+        evento.preventDefault();
+
+        primeiroElemento.focus();
+
+    }
 }
 
 
-// Fecha o modal clicando fora do conteúdo
+// =========================================================
+// 15. FECHAR MODAL CLICANDO FORA
+// =========================================================
+
 window.addEventListener(
     "click",
     (evento) => {
 
         const modal =
-            document.getElementById("modal");
+            document.getElementById(
+                "modal"
+            );
 
 
         if (
@@ -162,23 +632,18 @@ window.addEventListener(
 );
 
 
-// Fecha o modal pressionando ESC
+// =========================================================
+// 16. EVENTOS DE TECLADO DO MODAL
+// =========================================================
+
 document.addEventListener(
     "keydown",
-    (evento) => {
-
-        if (evento.key === "Escape") {
-
-            fecharModal();
-
-        }
-
-    }
+    controlarFocoModal
 );
 
 
 // =========================================================
-// 5. RESTAURAR CADASTROS NA INTERFACE
+// 17. RESTAURAR CADASTROS NA INTERFACE
 // =========================================================
 
 function restaurarCadastros() {
@@ -205,10 +670,14 @@ function restaurarCadastros() {
     // NENHUM CADASTRO
     // =====================================================
 
-    if (cadastros.length === 0) {
+    if (
+        cadastros.length === 0
+    ) {
 
         const mensagem =
-            document.createElement("p");
+            document.createElement(
+                "p"
+            );
 
 
         mensagem.textContent =
@@ -246,11 +715,14 @@ function restaurarCadastros() {
             // ---------------------------------------------
 
             const titulo =
-                document.createElement("h4");
+                document.createElement(
+                    "h4"
+                );
 
 
             titulo.textContent =
-                cadastro.nome || "Sem nome";
+                cadastro.nome ||
+                "Sem nome";
 
 
             // ---------------------------------------------
@@ -258,7 +730,9 @@ function restaurarCadastros() {
             // ---------------------------------------------
 
             const email =
-                document.createElement("p");
+                document.createElement(
+                    "p"
+                );
 
 
             email.textContent =
@@ -270,7 +744,9 @@ function restaurarCadastros() {
             // ---------------------------------------------
 
             const telefone =
-                document.createElement("p");
+                document.createElement(
+                    "p"
+                );
 
 
             telefone.textContent =
@@ -282,7 +758,9 @@ function restaurarCadastros() {
             // ---------------------------------------------
 
             const endereco =
-                document.createElement("p");
+                document.createElement(
+                    "p"
+                );
 
 
             const numero =
@@ -300,7 +778,9 @@ function restaurarCadastros() {
             // ---------------------------------------------
 
             const bairro =
-                document.createElement("p");
+                document.createElement(
+                    "p"
+                );
 
 
             bairro.textContent =
@@ -312,7 +792,9 @@ function restaurarCadastros() {
             // ---------------------------------------------
 
             const cidade =
-                document.createElement("p");
+                document.createElement(
+                    "p"
+                );
 
 
             cidade.textContent =
@@ -361,16 +843,38 @@ function restaurarCadastros() {
             // MONTA O CARD
             // ---------------------------------------------
 
-            card.appendChild(titulo);
-            card.appendChild(email);
-            card.appendChild(telefone);
-            card.appendChild(endereco);
-            card.appendChild(bairro);
-            card.appendChild(cidade);
-            card.appendChild(botaoExcluir);
+            card.appendChild(
+                titulo
+            );
+
+            card.appendChild(
+                email
+            );
+
+            card.appendChild(
+                telefone
+            );
+
+            card.appendChild(
+                endereco
+            );
+
+            card.appendChild(
+                bairro
+            );
+
+            card.appendChild(
+                cidade
+            );
+
+            card.appendChild(
+                botaoExcluir
+            );
 
 
-            lista.appendChild(card);
+            lista.appendChild(
+                card
+            );
 
         }
     );
@@ -378,7 +882,7 @@ function restaurarCadastros() {
 
 
 // =========================================================
-// 6. CONFIGURAÇÃO DO FORMULÁRIO
+// 18. CONFIGURAÇÃO DO FORMULÁRIO
 // =========================================================
 
 function configurarFormulario() {
@@ -394,8 +898,8 @@ function configurarFormulario() {
     }
 
 
-    // Evita configurar os mesmos eventos
-    // mais de uma vez no mesmo formulário.
+    // Evita registrar os mesmos
+    // eventos mais de uma vez.
 
     if (
         formulario.dataset.configurado ===
@@ -417,7 +921,9 @@ function configurarFormulario() {
 
 
     const campoCPF =
-        formulario.querySelector("#cpf");
+        formulario.querySelector(
+            "#cpf"
+        );
 
 
     const campoTelefone =
@@ -427,11 +933,13 @@ function configurarFormulario() {
 
 
     const campoCEP =
-        formulario.querySelector("#cep");
+        formulario.querySelector(
+            "#cep"
+        );
 
 
     // =====================================================
-    // 7. CPF
+    // 19. CPF
     // =====================================================
 
     if (campoCPF) {
@@ -456,7 +964,7 @@ function configurarFormulario() {
 
 
     // =====================================================
-    // 8. TELEFONE
+    // 20. TELEFONE
     // =====================================================
 
     if (campoTelefone) {
@@ -481,7 +989,7 @@ function configurarFormulario() {
 
 
     // =====================================================
-    // 9. CEP
+    // 21. CEP
     // =====================================================
 
     if (campoCEP) {
@@ -508,11 +1016,9 @@ function configurarFormulario() {
                     );
 
 
-                // Quando chegar aos 8 números,
-                // consulta automaticamente o ViaCEP.
-
                 if (
-                    somenteNumeros.length === 8
+                    somenteNumeros.length ===
+                    8
                 ) {
 
                     buscarEnderecoPorCEP(
@@ -527,14 +1033,11 @@ function configurarFormulario() {
 
 
     // =====================================================
-    // 10. VALIDAÇÃO DOS DEMAIS CAMPOS
+    // 22. VALIDAÇÃO DOS DEMAIS CAMPOS
     // =====================================================
 
     campos.forEach(
         (campo) => {
-
-            // CPF, telefone e CEP já possuem
-            // eventos específicos.
 
             if (
                 campo.id === "cpf" ||
@@ -550,7 +1053,9 @@ function configurarFormulario() {
                 "input",
                 () => {
 
-                    validarCampo(campo);
+                    validarCampo(
+                        campo
+                    );
 
                 }
             );
@@ -560,7 +1065,9 @@ function configurarFormulario() {
                 "change",
                 () => {
 
-                    validarCampo(campo);
+                    validarCampo(
+                        campo
+                    );
 
                 }
             );
@@ -570,7 +1077,7 @@ function configurarFormulario() {
 
 
     // =====================================================
-    // 11. ENVIO DO FORMULÁRIO
+    // 23. ENVIO DO FORMULÁRIO
     // =====================================================
 
     formulario.addEventListener(
@@ -580,14 +1087,18 @@ function configurarFormulario() {
             evento.preventDefault();
 
 
-            let formularioValido = true;
+            let formularioValido =
+                true;
 
 
-            // Valida todos os campos
             campos.forEach(
                 (campo) => {
 
-                    if (!validarCampo(campo)) {
+                    if (
+                        !validarCampo(
+                            campo
+                        )
+                    ) {
 
                         formularioValido =
                             false;
@@ -610,7 +1121,9 @@ function configurarFormulario() {
                     );
 
 
-                if (primeiroCampoInvalido) {
+                if (
+                    primeiroCampoInvalido
+                ) {
 
                     primeiroCampoInvalido
                         .focus();
@@ -623,26 +1136,31 @@ function configurarFormulario() {
 
 
             // =================================================
-            // FUNÇÃO AUXILIAR PARA OBTER VALORES
+            // FUNÇÃO AUXILIAR
             // =================================================
 
-            const valor = (nome) => {
+            const valor =
+                (nome) => {
 
-                const campo =
-                    formulario.elements[nome];
-
-
-                if (!campo) {
-                    return "";
-                }
+                    const campo =
+                        formulario.elements[
+                            nome
+                        ];
 
 
-                return campo.value.trim();
-            };
+                    if (!campo) {
+                        return "";
+                    }
+
+
+                    return campo.value
+                        .trim();
+
+                };
 
 
             // =================================================
-            // CRIA O OBJETO DO CADASTRO
+            // OBJETO DO CADASTRO
             // =================================================
 
             const novoCadastro = {
@@ -690,14 +1208,13 @@ function configurarFormulario() {
 
 
             // =================================================
-            // RECUPERA OS CADASTROS EXISTENTES
+            // RECUPERA CADASTROS
             // =================================================
 
             const cadastros =
                 obterCadastros();
 
 
-            // Adiciona o novo cadastro
             cadastros.push(
                 novoCadastro
             );
@@ -719,7 +1236,7 @@ function configurarFormulario() {
 
 
             // =================================================
-            // REMOVE MENSAGEM DE SUCESSO ANTERIOR
+            // REMOVE MENSAGEM ANTERIOR
             // =================================================
 
             const mensagemAnterior =
@@ -736,7 +1253,7 @@ function configurarFormulario() {
 
 
             // =================================================
-            // CRIA MENSAGEM DE SUCESSO
+            // MENSAGEM DE SUCESSO
             // =================================================
 
             const mensagem =
@@ -755,6 +1272,12 @@ function configurarFormulario() {
             );
 
 
+            mensagem.setAttribute(
+                "aria-live",
+                "polite"
+            );
+
+
             mensagem.textContent =
                 "✓ Cadastro salvo com sucesso!";
 
@@ -765,14 +1288,14 @@ function configurarFormulario() {
 
 
             // =================================================
-            // LIMPA O FORMULÁRIO
+            // LIMPA FORMULÁRIO
             // =================================================
 
             formulario.reset();
 
 
             // =================================================
-            // LIMPA AS CLASSES DE VALIDAÇÃO
+            // LIMPA VALIDAÇÕES VISUAIS
             // =================================================
 
             campos.forEach(
@@ -785,7 +1308,9 @@ function configurarFormulario() {
 
 
                     const container =
-                        campo.closest(".campo");
+                        campo.closest(
+                            ".campo"
+                        );
 
 
                     if (container) {
@@ -798,7 +1323,8 @@ function configurarFormulario() {
 
                         if (erro) {
 
-                            erro.textContent = "";
+                            erro.textContent =
+                                "";
 
                         }
 
@@ -809,7 +1335,7 @@ function configurarFormulario() {
 
 
             // =================================================
-            // ATUALIZA O HISTÓRICO
+            // ATUALIZA HISTÓRICO
             // =================================================
 
             restaurarCadastros();
@@ -820,12 +1346,8 @@ function configurarFormulario() {
 
 
 // =========================================================
-// 12. INICIALIZAÇÃO DA APLICAÇÃO
+// 24. INICIALIZAÇÃO DA SPA
 // =========================================================
-
-// configurarSPA() retorna true quando existe
-// #conteudo-principal e a aplicação está funcionando
-// como SPA.
 
 const usandoSPA =
     configurarSPA(
@@ -833,10 +1355,6 @@ const usandoSPA =
         restaurarCadastros
     );
 
-
-// Se não estivermos na página principal da SPA,
-// configuramos diretamente o formulário da página,
-// como no cadastro.html independente.
 
 if (!usandoSPA) {
 
@@ -848,13 +1366,8 @@ if (!usandoSPA) {
 
 
 // =========================================================
-// 13. COMPATIBILIDADE COM O HTML EXISTENTE
+// 25. COMPATIBILIDADE COM ONCLICK DO HTML
 // =========================================================
-
-// Como ES6 Modules possuem seu próprio escopo,
-// funções utilizadas por onclick no HTML antigo
-// precisam ser explicitamente disponibilizadas
-// no objeto window.
 
 window.mostrarToast =
     mostrarToast;

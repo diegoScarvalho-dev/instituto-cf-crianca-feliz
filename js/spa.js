@@ -44,6 +44,36 @@ export function configurarSPA(
         restaurarCadastros;
 
 
+    // =====================================================
+    // VERIFICA EM QUAL PÁGINA HTML ESTAMOS
+    // =====================================================
+    //
+    // A SPA deve controlar somente a página index.html.
+    //
+    // Se estivermos em projetos.html ou cadastro.html,
+    // essas páginas continuam funcionando normalmente
+    // como páginas HTML independentes.
+    //
+    // Isso evita que o conteúdo dessas páginas seja salvo
+    // incorretamente como se fosse a página "Início".
+    // =====================================================
+
+    const paginaAtual =
+        window.location.pathname
+            .split("/")
+            .pop();
+
+
+    if (
+        paginaAtual &&
+        paginaAtual !== "index.html"
+    ) {
+
+        return false;
+
+    }
+
+
     // Procura o container principal da SPA
     conteudoPrincipal =
         document.getElementById(

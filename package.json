@@ -1,0 +1,34 @@
+{
+  "name": "projeto-ong",
+  "version": "1.0.0",
+  "description": "Projeto acadêmico desenvolvido como atividade prática da graduação em Engenharia de Software, com o objetivo de aplicar conceitos de desenvolvimento Front-end utilizando HTML5, CSS3 e JavaScript.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "otimizar-imagens": "node scripts/otimizar-imagens.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegoScarvalho-dev/instituto-cf-crianca-feliz.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "vite",
+    "frontend",
+    "ong"
+  ],
+  "author": "Diego Carvalho",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/diegoScarvalho-dev/instituto-cf-crianca-feliz/issues"
+  },
+  "homepage": "https://github.com/diegoScarvalho-dev/instituto-cf-crianca-feliz#readme",
+  "devDependencies": {
+    "sharp": "^0.35.5",
+    "vite": "^8.3.1"
+  }
+}
