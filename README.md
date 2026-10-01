@@ -1,10 +1,10 @@
-# 👧🧒 Instituto CF – Criança Feliz
+# Instituto CF - Criança Feliz
 
 Projeto acadêmico desenvolvido como atividade prática da graduação em **Engenharia de Software**, com o objetivo de aplicar conceitos de desenvolvimento Front-end utilizando **HTML5, CSS3 e JavaScript**.
 
-O projeto simula o site institucional de uma ONG fictícia chamada **Instituto CF – Criança Feliz**, voltada para ações sociais relacionadas à educação, alimentação, voluntariado e apoio à comunidade.
+O projeto simula o site institucional de uma ONG fictícia chamada **Instituto CF - Criança Feliz**, voltada para ações sociais relacionadas à educação, alimentação, voluntariado e apoio à comunidade.
 
-Durante a evolução do projeto foram implementados recursos como **Single Page Application (SPA), ES6 Modules, manipulação do DOM, validação de formulários, máscaras de campos, armazenamento com localStorage e integração com a API ViaCEP**.
+Durante a evolução do projeto foram implementados recursos como **Single Page Application (SPA), ES6 Modules, manipulação do DOM, validação de formulários, máscaras de campos, localStorage, integração com a API ViaCEP, acessibilidade, otimização de performance, build com Vite, versionamento com Git/GitHub e deploy em produção**.
 
 ---
 
@@ -18,22 +18,37 @@ A atividade teve como objetivo aplicar, de forma prática, conceitos relacionado
 - Manipulação do DOM com JavaScript;
 - Navegação dinâmica;
 - Single Page Application (SPA);
-- Modularização do JavaScript com ES6 Modules;
-- Uso de `import` e `export`;
+- Modularização com ES6 Modules;
+- `import` e `export`;
 - Eventos com `addEventListener`;
 - Formulários HTML;
 - Validação de campos;
 - Máscaras para CPF, telefone e CEP;
-- Persistência de dados com `localStorage`;
+- Persistência com `localStorage`;
 - Manipulação de JSON;
 - Consumo de API externa;
-- Programação assíncrona com `async/await`;
-- Requisições utilizando `fetch`;
-- Tratamento de erros com `try/catch/finally`;
-- Histórico de navegação com `History API`;
+- `async/await`;
+- Fetch API;
+- Tratamento de erros;
+- History API;
 - Acessibilidade;
-- Organização de arquivos e responsabilidades;
-- Versionamento utilizando Git e GitHub.
+- Otimização de imagens;
+- Build de produção;
+- Git e GitHub;
+- GitFlow;
+- Deploy em ambiente de produção.
+
+---
+
+## 🌐 Projeto publicado
+
+O projeto possui uma versão publicada em produção utilizando a **Vercel**.
+
+**Produção:**
+
+https://instituto-cf-crianca-feliz.vercel.app/
+
+**Versão:** `v1.0.0`
 
 ---
 
@@ -41,7 +56,7 @@ A atividade teve como objetivo aplicar, de forma prática, conceitos relacionado
 
 ### `index.html`
 
-Página inicial do **Instituto CF – Criança Feliz**.
+Página inicial do **Instituto CF - Criança Feliz**.
 
 Apresenta informações institucionais e funciona como ponto principal da aplicação.
 
@@ -55,13 +70,13 @@ Apresenta os projetos e ações sociais desenvolvidos pelo Instituto CF, incluin
 - Alimentação;
 - Voluntariado.
 
-Os cards dos projetos também podem ser gerados dinamicamente através do JavaScript.
+Os cards também podem ser gerados dinamicamente pelo JavaScript.
 
 ### `cadastro.html`
 
 Página destinada ao cadastro de pessoas interessadas em participar das ações do Instituto.
 
-O formulário possui informações pessoais e de endereço, incluindo:
+O formulário trabalha com informações como:
 
 - Nome;
 - E-mail;
@@ -78,9 +93,9 @@ O formulário possui informações pessoais e de endereço, incluindo:
 
 ---
 
-## ⚡ JavaScript
+## ⚙️ JavaScript
 
-O JavaScript da aplicação foi dividido em diferentes módulos utilizando **ES6 Modules**.
+O JavaScript foi dividido em diferentes módulos utilizando **ES6 Modules**.
 
 A aplicação utiliza:
 
@@ -94,45 +109,39 @@ e:
 export
 ```
 
-para permitir a comunicação entre arquivos mantendo cada módulo responsável por uma parte específica do sistema.
+Isso permite separar responsabilidades e manter cada módulo responsável por uma parte específica do sistema.
 
-O arquivo principal é:
+O ponto principal da aplicação é:
 
 ```text
 js/script.js
 ```
 
-Ele realiza a integração dos demais módulos e inicializa os principais recursos da aplicação.
-
 ---
 
 ## 🧩 Modularização
 
-O JavaScript foi dividido nos seguintes módulos:
-
 ### `script.js`
 
-Arquivo principal da aplicação.
+Integra os módulos e controla funcionalidades gerais da aplicação, incluindo:
 
-Responsável por integrar os demais módulos e controlar funcionalidades gerais, como:
-
-- Inicialização da aplicação;
-- Configuração do formulário;
+- Inicialização;
+- Formulários;
 - Menu responsivo;
 - Modal;
 - Toast;
 - Histórico visual dos cadastros;
-- Integração entre os módulos.
+- Integração entre módulos.
 
 ### `mascaras.js`
 
-Responsável pela formatação automática dos campos:
+Responsável pela formatação automática de:
 
 - CPF;
 - Telefone;
 - CEP.
 
-Exemplo:
+Exemplos:
 
 ```text
 CPF:      123.456.789-01
@@ -142,16 +151,18 @@ CEP:      00000-000
 
 ### `validacao.js`
 
-Centraliza as regras de validação dos campos.
+Centraliza as regras de validação.
 
-Utiliza recursos da **Constraint Validation API** do navegador, como:
+Utiliza recursos da **Constraint Validation API**, como:
 
-- `checkValidity()`;
-- `validity.valueMissing`;
-- `validity.typeMismatch`;
-- `validity.patternMismatch`.
+```javascript
+checkValidity()
+validity.valueMissing
+validity.typeMismatch
+validity.patternMismatch
+```
 
-Também controla mensagens e classes visuais de campos válidos e inválidos.
+Também controla mensagens e estados visuais dos campos.
 
 ### `storage.js`
 
@@ -161,7 +172,7 @@ Responsável pela persistência dos cadastros utilizando:
 localStorage
 ```
 
-São utilizadas operações como:
+Entre as operações utilizadas estão:
 
 ```javascript
 localStorage.setItem()
@@ -171,15 +182,15 @@ JSON.stringify()
 JSON.parse()
 ```
 
-Dessa forma, os cadastros permanecem armazenados no navegador mesmo após atualizar ou fechar a página.
+Os dados permanecem armazenados no navegador após a atualização da página.
 
-> O uso de `localStorage` neste projeto possui finalidade educacional. Em uma aplicação real, dados pessoais devem ser tratados com mecanismos apropriados de segurança, privacidade e armazenamento.
+> O `localStorage` é utilizado neste projeto para fins educacionais. Em aplicações reais, dados pessoais exigem mecanismos adequados de segurança, privacidade e armazenamento.
 
 ### `viacep.js`
 
 Responsável pela integração com a API pública **ViaCEP**.
 
-Ao informar um CEP válido, a aplicação pode preencher automaticamente informações como:
+Ao informar um CEP válido, a aplicação pode preencher automaticamente:
 
 - Logradouro;
 - Bairro;
@@ -197,13 +208,11 @@ catch
 finally
 ```
 
-Também existe tratamento para CEP inexistente, indisponibilidade da API e preenchimento manual em caso de falha.
+Também existe tratamento para CEP inexistente, indisponibilidade da API e preenchimento manual.
 
 ### `projetos.js`
 
-Contém os dados dos projetos sociais e a função responsável pela geração dinâmica dos cards.
-
-Isso permite separar os dados dos projetos da lógica principal da aplicação.
+Centraliza os dados relacionados aos projetos sociais e permite sua utilização dinâmica pela aplicação.
 
 ### `spa.js`
 
@@ -213,79 +222,67 @@ Controla:
 
 - Rotas internas;
 - Alteração dinâmica do conteúdo;
-- Navegação entre Início, Projetos e Cadastro;
+- Navegação;
 - `history.pushState()`;
 - Evento `popstate`;
-- Botões Voltar e Avançar do navegador;
-- Integração com os cards de projetos.
+- Botões Voltar e Avançar;
+- Integração entre as páginas e a navegação dinâmica.
 
 ---
 
 ## 🔄 Funcionamento da SPA
 
-Na página principal, a navegação pode ocorrer sem o recarregamento completo da página.
-
-O fluxo básico é:
+Fluxo simplificado:
 
 ```text
 Usuário seleciona uma opção
-          ↓
+        ↓
 JavaScript identifica a rota
-          ↓
+        ↓
 SPA altera o conteúdo
-          ↓
+        ↓
 DOM é atualizado
-          ↓
-History API atualiza a URL
+        ↓
+History API atualiza a navegação
 ```
 
-São utilizadas rotas como:
-
-```text
-#inicio
-#projetos
-#cadastro
-```
+A implementação utiliza rotas internas e mantém integração com as páginas HTML tradicionais.
 
 ---
 
 ## 💾 Persistência com localStorage
 
-Os dados cadastrados pelo usuário são transformados em JSON antes de serem armazenados.
-
-Fluxo de salvamento:
+Fluxo de armazenamento:
 
 ```text
 Objeto / Array JavaScript
-          ↓
+        ↓
 JSON.stringify()
-          ↓
+        ↓
 String JSON
-          ↓
+        ↓
 localStorage
 ```
 
-Na recuperação ocorre o processo inverso:
+Na recuperação:
 
 ```text
 localStorage
-      ↓
+        ↓
 JSON.parse()
-      ↓
+        ↓
 Objeto / Array JavaScript
-      ↓
+        ↓
 Interface
 ```
 
-Os cadastros salvos podem ser novamente apresentados na interface e também removidos pelo usuário.
+Os registros podem ser recuperados e removidos pela interface.
 
 ---
 
 ## 🌐 Integração com ViaCEP
 
-O projeto utiliza uma API externa para facilitar o preenchimento do endereço.
-
-Quando o usuário informa os oito números do CEP:
+Fluxo:
 
 ```text
 CEP
@@ -301,15 +298,15 @@ JSON
 Endereço preenchido automaticamente
 ```
 
-O número e o complemento continuam sendo preenchidos manualmente pelo usuário.
+Número e complemento continuam sendo informados manualmente.
 
 ---
 
 ## ✅ Validação de formulários
 
-O formulário combina recursos nativos do HTML5 com validações realizadas em JavaScript.
+O formulário combina recursos do HTML5 com validações JavaScript.
 
-Entre os recursos utilizados estão:
+Entre os recursos utilizados:
 
 - `required`;
 - `pattern`;
@@ -320,16 +317,17 @@ Entre os recursos utilizados estão:
 - `inputmode`;
 - `checkValidity()`.
 
-Foram aplicadas máscaras e validações específicas para CPF, telefone e CEP.
-
-Mensagens de erro também são exibidas dinamicamente na interface.
+Também são utilizadas máscaras para CPF, telefone e CEP e mensagens de validação apresentadas dinamicamente.
 
 ---
 
-## ♿ Acessibilidade e HTML semântico
+## ♿ Acessibilidade
 
-Durante o desenvolvimento foram utilizadas tags semânticas como:
+O projeto recebeu uma etapa específica de melhorias de acessibilidade, considerando critérios trabalhados da **WCAG 2.1**.
 
+Entre os recursos implementados estão:
+
+- HTML semântico;
 - `<header>`;
 - `<nav>`;
 - `<main>`;
@@ -338,36 +336,224 @@ Durante o desenvolvimento foram utilizadas tags semânticas como:
 - `<footer>`;
 - `<fieldset>`;
 - `<legend>`;
-- `<label>`.
-
-Também foram utilizados recursos como:
-
-- Atributos `alt` em imagens;
-- Labels associados aos campos;
+- `<label>`;
+- textos alternativos em imagens;
+- labels associados aos campos;
 - `aria-label`;
 - `aria-expanded`;
-- `role="alert"`;
-- `role="status"`.
+- `aria-pressed`;
+- regiões de status;
+- skip link;
+- navegação por teclado;
+- estados `:focus-visible`;
+- controle de foco em modal;
+- fechamento do modal com `Esc`;
+- focus trap;
+- retorno do foco após fechar o modal;
+- modo de alto contraste;
+- persistência da preferência de contraste;
+- suporte a `prefers-reduced-motion`.
 
-Esses recursos contribuem para uma interface mais organizada e acessível.
+Essas melhorias foram implementadas visando tornar a interface mais acessível e facilitar a utilização por teclado e tecnologias assistivas.
 
 ---
 
 ## 📱 Responsividade
 
-A interface foi desenvolvida para se adaptar a diferentes tamanhos de tela.
-
-O CSS utiliza recursos como:
+A interface foi desenvolvida para diferentes tamanhos de tela utilizando:
 
 - Flexbox;
-- Grid;
+- CSS Grid;
 - Media Queries;
 - Menu responsivo;
-- Organização adaptável dos conteúdos e formulários.
+- Layout adaptável;
+- Imagens responsivas.
 
 ---
 
-## 🎨 Tecnologias utilizadas
+## ⚡ Otimização de performance
+
+Foi realizada uma etapa específica de otimização dos recursos da aplicação.
+
+### Imagens
+
+As principais imagens foram convertidas de **PNG para WebP** utilizando a biblioteca **Sharp**.
+
+O script responsável pela otimização está em:
+
+```text
+scripts/otimizar-imagens.js
+```
+
+Para executá-lo:
+
+```bash
+npm run otimizar-imagens
+```
+
+As imagens de conteúdo originalmente possuíam aproximadamente **6,38 MB** e passaram para aproximadamente **350 KB**, representando uma redução aproximada de **94,5%**.
+
+Também foi criada uma versão otimizada da logo para utilização na interface.
+
+### CSS e JavaScript
+
+Antes do build:
+
+```text
+CSS:              32,51 KB
+JavaScript:       67,46 KB
+Total:            99,97 KB
+```
+
+Após o build de produção:
+
+```text
+CSS:              15,24 KB
+JavaScript:       22,13 KB
+Total:            37,37 KB
+```
+
+Redução aproximada:
+
+```text
+62,6%
+```
+
+Com compressão gzip, os principais arquivos CSS e JavaScript totalizam aproximadamente:
+
+```text
+8,84 KB
+```
+
+---
+
+## 📦 Vite e build de produção
+
+O projeto utiliza **Vite** para desenvolvimento, build e preparação dos arquivos para produção.
+
+### Desenvolvimento
+
+```bash
+npm run dev
+```
+
+### Gerar build
+
+```bash
+npm run build
+```
+
+O resultado é gerado em:
+
+```text
+dist/
+```
+
+### Testar a versão de produção localmente
+
+```bash
+npm run preview
+```
+
+O arquivo `vite.config.js` configura as três páginas HTML como entradas do build:
+
+- `index.html`;
+- `projetos.html`;
+- `cadastro.html`.
+
+---
+
+## 🚀 Deploy
+
+O deploy de produção foi realizado utilizando a **Vercel**, integrada ao repositório GitHub.
+
+Configuração utilizada:
+
+```text
+Production Branch: main
+Build Command: npm run build
+Output Directory: dist
+```
+
+O fluxo de publicação é:
+
+```text
+GitHub
+   ↓
+main
+   ↓
+Vercel
+   ↓
+npm install
+   ↓
+npm run build
+   ↓
+dist/
+   ↓
+Produção
+```
+
+Site publicado:
+
+https://instituto-cf-crianca-feliz.vercel.app/
+
+---
+
+## 🌿 Versionamento e GitFlow
+
+O desenvolvimento foi versionado utilizando **Git e GitHub**.
+
+Fluxo utilizado:
+
+```text
+feature/*
+    ↓
+develop
+    ↓
+release/*
+    ↓
+main
+    ↓
+tag
+```
+
+Branches utilizadas durante o desenvolvimento incluíram:
+
+```text
+feature/acessibilidade-wcag
+feature/otimizacao-performance
+release/1.0.0
+develop
+main
+```
+
+As funcionalidades foram integradas utilizando **Pull Requests**.
+
+A primeira versão de produção foi marcada com:
+
+```text
+v1.0.0
+```
+
+Fluxo simplificado:
+
+```text
+feature/acessibilidade-wcag ──────┐
+                                  ├── develop
+feature/otimizacao-performance ───┘
+                                      ↓
+                               release/1.0.0
+                                      ↓
+                                    main
+                                      ↓
+                                   v1.0.0
+                                      ↓
+                                    Vercel
+```
+
+---
+
+## 🛠️ Tecnologias utilizadas
 
 - HTML5;
 - CSS3;
@@ -380,10 +566,13 @@ O CSS utiliza recursos como:
 - Web Storage API (`localStorage`);
 - JSON;
 - ViaCEP;
+- Vite;
+- Sharp;
+- Node.js / npm;
 - Git;
 - GitHub;
-- Visual Studio Code;
-- Live Server.
+- Vercel;
+- Visual Studio Code.
 
 ---
 
@@ -393,6 +582,8 @@ O CSS utiliza recursos como:
 projeto-ong/
 │
 ├── img/
+│   ├── imagens PNG
+│   └── imagens WebP otimizadas
 │
 ├── js/
 │   ├── mascaras.js
@@ -403,48 +594,89 @@ projeto-ong/
 │   ├── validacao.js
 │   └── viacep.js
 │
+├── scripts/
+│   └── otimizar-imagens.js
+│
 ├── cadastro.html
 ├── index.html
 ├── projetos.html
-├── README.md
-└── style.css
+├── style.css
+├── vite.config.js
+├── package.json
+├── package-lock.json
+├── .gitignore
+└── README.md
 ```
 
-A modularização permite separar as responsabilidades da aplicação e facilita a manutenção e evolução do código.
+As pastas abaixo são geradas localmente e não precisam ser versionadas:
+
+```text
+node_modules/
+dist/
+```
 
 ---
 
 ## ▶️ Como executar o projeto
 
-1. Clone ou baixe este repositório.
-2. Abra a pasta do projeto no **Visual Studio Code**.
-3. Utilize a extensão **Live Server**.
-4. Abra o arquivo `index.html`.
-5. Selecione **Open with Live Server**.
+### 1. Clone o repositório
 
-O uso de um servidor local é recomendado porque o projeto utiliza **ES6 Modules**.
+```bash
+git clone https://github.com/diegoScarvalho-dev/instituto-cf-crianca-feliz.git
+```
+
+### 2. Entre na pasta
+
+```bash
+cd instituto-cf-crianca-feliz
+```
+
+### 3. Instale as dependências
+
+```bash
+npm install
+```
+
+### 4. Inicie o ambiente de desenvolvimento
+
+```bash
+npm run dev
+```
+
+### 5. Abra o endereço apresentado pelo Vite
+
+Normalmente:
+
+```text
+http://localhost:5173/
+```
 
 ---
 
 ## 🧪 Funcionalidades implementadas
 
 - Navegação SPA;
-- Navegação utilizando History API;
-- Página de projetos;
+- History API;
+- Páginas institucionais;
 - Formulário de cadastro;
 - Validação em tempo real;
 - Máscara de CPF;
 - Máscara de telefone;
 - Máscara de CEP;
 - Consulta automática de endereço pelo ViaCEP;
-- Armazenamento de cadastros no navegador;
-- Recuperação dos cadastros salvos;
+- Persistência com localStorage;
+- Recuperação de cadastros;
 - Exclusão de cadastros;
-- Feedback visual de validação;
+- Feedback visual;
 - Modal;
 - Toast;
 - Menu responsivo;
-- Estrutura JavaScript modular.
+- JavaScript modular;
+- Navegação por teclado;
+- Modo de alto contraste;
+- Otimização de imagens;
+- Build de produção;
+- Deploy público.
 
 ---
 
@@ -452,13 +684,37 @@ O uso de um servidor local é recomendado porque o projeto utiliza **ES6 Modules
 
 Este projeto foi desenvolvido para fins educacionais como parte de uma atividade da graduação em **Engenharia de Software**.
 
-A proposta permitiu aplicar conhecimentos teóricos em uma aplicação funcional, passando da estruturação com HTML e CSS para conceitos de JavaScript como manipulação do DOM, eventos, validação, armazenamento local, consumo de APIs, programação assíncrona, SPA e modularização com ES6 Modules.
+A proposta permitiu aplicar conhecimentos teóricos em uma aplicação funcional, evoluindo desde HTML, CSS e JavaScript até conceitos de modularização, SPA, consumo de APIs, armazenamento local, acessibilidade, performance, versionamento e publicação de uma aplicação web.
 
-O desenvolvimento também permitiu trabalhar conceitos de organização e manutenção de código, separando diferentes responsabilidades da aplicação em módulos especializados.
+O desenvolvimento também permitiu trabalhar conceitos relacionados ao ciclo de desenvolvimento de software:
 
-O **Instituto CF – Criança Feliz é uma organização fictícia**, criada exclusivamente para o desenvolvimento desta atividade acadêmica.
+```text
+Desenvolvimento
+      ↓
+Versionamento
+      ↓
+Feature
+      ↓
+Integração
+      ↓
+Testes
+      ↓
+Release
+      ↓
+Produção
+```
+
+O **Instituto CF - Criança Feliz é uma organização fictícia**, criada exclusivamente para o desenvolvimento desta atividade acadêmica.
 
 ---
 
-**Desenvolvido por Diego Carvalho**  
-Projeto acadêmico – Engenharia de Software
+## 👨‍💻 Autor
+
+**Diego Carvalho**
+
+Projeto acadêmico - Engenharia de Software
+
+**Versão:** `v1.0.0`
+
+**Produção:**  
+https://instituto-cf-crianca-feliz.vercel.app/
